@@ -7,17 +7,45 @@
 //
 
 import UIKit
-import Parse
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let testObject = PFObject(className: "TestObject")
-        testObject["foo"] = "bar"
-        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-            print("Object has been saved.")
+        PFUser.logOut()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if (PFUser.currentUser() == nil) {
+            let parseLoginViewController = LoginViewController()
+            parseLoginViewController.delegate = self
+            parseLoginViewController.signUpController?.delegate = self
+            parseLoginViewController.fields = [.UsernameAndPassword, .LogInButton, .SignUpButton, .PasswordForgotten, .Facebook, .Twitter]
+            parseLoginViewController.emailAsUsername = true
+            self.presentViewController(parseLoginViewController, animated: false, completion: nil)
+        } else {
+            presentLoggedInAlert()
         }
+    }
+    
+    func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        presentLoggedInAlert()
+    }
+    
+    func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        presentLoggedInAlert()
+    }
+    
+    func presentLoggedInAlert() {
+        let alertController = UIAlertController(title: "You're logged in", message: "Welcome to Happy Habits", preferredStyle: .Alert)
+        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        alertController.addAction(OKAction)
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
