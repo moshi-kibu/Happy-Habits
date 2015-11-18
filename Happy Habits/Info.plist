@@ -8,6 +8,7 @@
 	</array>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>Twitter</string>
 		<string>fbauth2</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>

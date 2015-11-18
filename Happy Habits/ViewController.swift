@@ -9,20 +9,20 @@
 import UIKit
 
 class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        PFUser.logOut()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         if (PFUser.currentUser() == nil) {
             let parseLoginViewController = LoginViewController()
-            parseLoginViewController.delegate = self
-            parseLoginViewController.signUpController?.delegate = self
             parseLoginViewController.fields = [.UsernameAndPassword, .LogInButton, .SignUpButton, .PasswordForgotten, .Facebook, .Twitter]
-            parseLoginViewController.emailAsUsername = true
+            parseLoginViewController.delegate = self
+            parseLoginViewController.signUpController = SignUpViewController()
+            parseLoginViewController.signUpController?.emailAsUsername = true
+            parseLoginViewController.signUpController?.delegate = self
             self.presentViewController(parseLoginViewController, animated: false, completion: nil)
         } else {
             presentLoggedInAlert()

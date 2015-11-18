@@ -15,6 +15,10 @@ class LoginViewController : PFLogInViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        self.fields = [.UsernameAndPassword, .LogInButton, .SignUpButton, .PasswordForgotten, .Facebook, .Twitter]
+        self.emailAsUsername = true
+        
         // set our custom background image
         backgroundImage = UIImageView(image: UIImage(named: "Happy"))
         backgroundImage.contentMode = UIViewContentMode.ScaleAspectFill
