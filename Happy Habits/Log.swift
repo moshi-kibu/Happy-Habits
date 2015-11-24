@@ -12,11 +12,13 @@ class Log: PFObject, PFSubclassing  {
     
     @NSManaged var happinessLevel : Int
     @NSManaged var userID : String
+    @NSManaged var loggedAt : NSDate
     
     init(happinessLevel : Int) {
         super.init()
         self.happinessLevel = happinessLevel
         self.userID = PFUser.currentUser()!.objectId!
+        self.loggedAt = NSDate()
     }
     
     override init() {

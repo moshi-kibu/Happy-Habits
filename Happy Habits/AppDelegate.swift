@@ -15,13 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Parse.enableLocalDatastore()
-        User.registerSubclass()
         Habit.registerSubclass()
+        Log.registerSubclass()
         
         
         // Initialize Parse.
         Parse.setApplicationId("bRwQbVWCtAi7zPsYoCM4VnM5sh1soYGWDPinprsO",
             clientKey: "mQkhiskXv4v2GevAmj3kYG2bYg7ocOeKp31wd08l")
+        
+        PFTwitterUtils.initializeWithConsumerKey("xAdcmuHjvDFV6JuJUhrWzaWGN", consumerSecret:"j9AXr6yvjwtLvu2z0dWVwOzgrrJoZkqW6Qc9VYwdldjHQfsuk6")
         
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions);
         

@@ -90,13 +90,16 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="e8E-Vo-0Ce">
-                                <rect key="frame" x="209" y="28" width="182" height="29"/>
+                                <rect key="frame" x="176" y="28" width="248" height="29"/>
                                 <animations/>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                    <segment title="Third"/>
+                                    <segment title="This Week"/>
+                                    <segment title="This Month"/>
+                                    <segment title="This Year"/>
                                 </segments>
+                                <connections>
+                                    <action selector="timeSelectorChanged:" destination="gWW-ku-nAq" eventType="valueChanged" id="TC5-Jg-9bf"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <animations/>
@@ -113,6 +116,7 @@
                     <tabBarItem key="tabBarItem" systemItem="history" id="4Cm-dF-xIC"/>
                     <connections>
                         <outlet property="lineChartView" destination="rya-eU-sej" id="EOL-ry-dvY"/>
+                        <outlet property="timeSelector" destination="e8E-Vo-0Ce" id="sln-w8-uPx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZBk-UH-hwg" userLabel="First Responder" sceneMemberID="firstResponder"/>
