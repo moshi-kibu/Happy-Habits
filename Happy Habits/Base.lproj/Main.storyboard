@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hY8-Mm-DqV">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -14,26 +15,128 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Happy" translatesAutoresizingMaskIntoConstraints="NO" id="cQQ-fp-Wcy">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <animations/>
                             </imageView>
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D41-AN-73Q">
+                                <rect key="frame" x="20" y="28" width="560" height="51"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="aop-a2-Q7p" kind="embed" id="5zc-wZ-vaT"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="D41-AN-73Q" secondAttribute="bottom" constant="472" id="4Lu-CK-HZb"/>
                             <constraint firstAttribute="trailing" secondItem="cQQ-fp-Wcy" secondAttribute="trailing" id="6Xm-yg-rrP"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cQQ-fp-Wcy" secondAttribute="bottom" id="BTd-28-I0d"/>
+                            <constraint firstItem="D41-AN-73Q" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="IXD-18-Eyj"/>
+                            <constraint firstItem="D41-AN-73Q" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="OnB-cc-Ffy"/>
                             <constraint firstItem="cQQ-fp-Wcy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dHb-40-iMy"/>
-                            <constraint firstItem="cQQ-fp-Wcy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ebI-jl-VWx"/>
+                            <constraint firstItem="cQQ-fp-Wcy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="ebI-jl-VWx"/>
+                            <constraint firstItem="D41-AN-73Q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="gD0-wP-z8E"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="more" id="Afy-6d-nV2"/>
+                    <connections>
+                        <outlet property="containerView" destination="D41-AN-73Q" id="ycB-yK-rrk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1148" y="349"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="gh9-Yb-Edq">
+            <objects>
+                <viewController id="aop-a2-Q7p" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="w9f-ya-00z"/>
+                        <viewControllerLayoutGuide type="bottom" id="7mR-mM-8Mf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qzl-MQ-9BG">
+                        <rect key="frame" x="0.0" y="0.0" width="560" height="51"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eY8-bk-xuP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1197" y="-60.5"/>
+        </scene>
+        <!--Happiness Chart View Controller-->
+        <scene sceneID="Szh-GD-YNk">
+            <objects>
+                <viewController id="gWW-ku-nAq" customClass="HappinessChartViewController" customModule="Happy_Habits" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gwW-x5-AEV"/>
+                        <viewControllerLayoutGuide type="bottom" id="qUh-rh-UO9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jCO-Pb-niC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rya-eU-sej" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="28" y="86" width="544" height="445"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="e8E-Vo-0Ce">
+                                <rect key="frame" x="209" y="28" width="182" height="29"/>
+                                <animations/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                    <segment title="Third"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="rya-eU-sej" secondAttribute="trailing" constant="8" id="97b-Df-gQ2"/>
+                            <constraint firstItem="rya-eU-sej" firstAttribute="leading" secondItem="jCO-Pb-niC" secondAttribute="leadingMargin" constant="8" id="SD7-o2-kdn"/>
+                            <constraint firstItem="e8E-Vo-0Ce" firstAttribute="top" secondItem="gwW-x5-AEV" secondAttribute="bottom" constant="8" id="e98-XF-PnZ"/>
+                            <constraint firstItem="e8E-Vo-0Ce" firstAttribute="centerX" secondItem="jCO-Pb-niC" secondAttribute="centerX" id="hUB-gQ-ErE"/>
+                            <constraint firstItem="rya-eU-sej" firstAttribute="top" secondItem="e8E-Vo-0Ce" secondAttribute="bottom" constant="30" id="lzq-IG-d5W"/>
+                            <constraint firstItem="qUh-rh-UO9" firstAttribute="top" secondItem="rya-eU-sej" secondAttribute="bottom" constant="20" id="zlo-5s-bl3"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="history" id="4Cm-dF-xIC"/>
+                    <connections>
+                        <outlet property="lineChartView" destination="rya-eU-sej" id="EOL-ry-dvY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZBk-UH-hwg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1996" y="344"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="x2D-pk-Hu6">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="hY8-Mm-DqV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="xuG-Xt-sr7">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="YjF-Ih-UR3"/>
+                        <segue destination="gWW-ku-nAq" kind="relationship" relationship="viewControllers" id="R45-kJ-kcc"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KWv-8Q-TLW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="336" y="349"/>
         </scene>
     </scenes>
     <resources>

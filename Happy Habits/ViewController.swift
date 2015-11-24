@@ -10,8 +10,17 @@ import UIKit
 
 class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
     
+    @IBOutlet weak var containerView: UIView!
+    var user = PFUser.currentUser()
+    var logs : [Log] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        PFUser.logOut()
+        user = PFUser.currentUser()
+        if user?.username != nil {
+           self.logs = Log.findLogsForCurrentUser()
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -25,34 +34,63 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
             parseLoginViewController.signUpController?.delegate = self
             self.presentViewController(parseLoginViewController, animated: false, completion: nil)
         } else {
-            presentLoggedInAlert()
+            self.containerView.hidden = false
+            self.showHappyLog()
+            if self.userLoggedHappinessToday(logs.last) == true {
+                self.containerView.hidden = false
+                self.showHappyLog()
+            }
         }
     }
     
     func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
         self.dismissViewControllerAnimated(true, completion: nil)
-        presentLoggedInAlert()
+        self.updateUserForInitialValues()
     }
     
     func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
         self.dismissViewControllerAnimated(true, completion: nil)
-        presentLoggedInAlert()
+        self.updateUserForInitialValues()
     }
     
-    func presentLoggedInAlert() {
-        let alertController = UIAlertController(title: "You're logged in", message: "Welcome to Happy Habits", preferredStyle: .Alert)
-        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-            self.dismissViewControllerAnimated(true, completion: nil)
+    func userLoggedHappinessToday(log: Log?) -> Bool {
+        if log == nil {
+            return false
         }
-        alertController.addAction(OKAction)
-        self.presentViewController(alertController, animated: true, completion: nil)
+        let createdDate = (log!.createdAt)! as NSDate
+        let today = NSDate()
+        let cal = NSCalendar.currentCalendar()
+        let components = cal.components([.Day], fromDate: createdDate, toDate: today, options: [])
+        return (components.day < 1)
+    }
+    
+    func updateUserForInitialValues() {
+        user = PFUser.currentUser()
+        if user!["HappinessLog"] == nil {
+            user!["HappinessLog"] = []
+            user?.saveEventually()
+        }
+    }
+    
+    func showHappyLog() {
+        let happinessLogController = LogHappinessViewController()
+        self.addChildViewController(happinessLogController)
+        happinessLogController.view.frame = CGRectMake(0, 0, self.containerView.frame.size.width, self.containerView.frame.size.height);
+        self.containerView.addSubview(happinessLogController.view)
+        happinessLogController.didMoveToParentViewController(self)
+    }
+    
+    func removeHappyLog(childController: UIViewController) {
+        self.containerView.hidden = true
+        childController.didMoveToParentViewController(nil)
+        childController.view.removeFromSuperview()
+        childController.removeFromParentViewController()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
 }
 

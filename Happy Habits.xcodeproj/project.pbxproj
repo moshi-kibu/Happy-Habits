@@ -12,7 +12,9 @@
 		9633CA701BFC0E85003E915A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9633CA6F1BFC0E85003E915A /* SignUpViewController.swift */; };
 		9633CA721BFC1715003E915A /* LogHappinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9633CA711BFC1715003E915A /* LogHappinessViewController.swift */; };
 		9633CA741BFC1739003E915A /* LogHappiness.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9633CA731BFC1739003E915A /* LogHappiness.xib */; };
-		9633CA761BFC24B8003E915A /* HappinessTracker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9633CA751BFC24B8003E915A /* HappinessTracker.xib */; };
+		965440801C03C759009BE9AD /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9654407B1C03C722009BE9AD /* Charts.framework */; };
+		965440811C03C759009BE9AD /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9654407B1C03C722009BE9AD /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		965440851C03C7C7009BE9AD /* HappinessChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965440841C03C7C7009BE9AD /* HappinessChartViewController.swift */; };
 		967172FA1BFBC1CF000DCC9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967172F91BFBC1CF000DCC9E /* AppDelegate.swift */; };
 		967172FC1BFBC1CF000DCC9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967172FB1BFBC1CF000DCC9E /* ViewController.swift */; };
 		967172FF1BFBC1CF000DCC9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 967172FD1BFBC1CF000DCC9E /* Main.storyboard */; };
@@ -21,11 +23,39 @@
 		9671730F1BFBC1CF000DCC9E /* Happy_HabitsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9671730E1BFBC1CF000DCC9E /* Happy_HabitsTests.swift */; };
 		9671731A1BFBC1CF000DCC9E /* Happy_HabitsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967173191BFBC1CF000DCC9E /* Happy_HabitsUITests.swift */; };
 		96CA02551BFBD01000D3D098 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA02541BFBD01000D3D098 /* Habit.swift */; };
-		96CA02581BFBD5DB00D3D098 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA02571BFBD5DB00D3D098 /* User.swift */; };
+		96EB31011BFE959D008811C7 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EB31001BFE959D008811C7 /* Log.swift */; };
 		ADD31F1E72E6960C5F1FB6F0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC09C552FB1D24FFAB78CF0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		9654407A1C03C722009BE9AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 965440741C03C722009BE9AD /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+		9654407C1C03C722009BE9AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 965440741C03C722009BE9AD /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
+			remoteInfo = "Charts-TV";
+		};
+		9654407E1C03C722009BE9AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 965440741C03C722009BE9AD /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
+			remoteInfo = ChartsTests;
+		};
+		965440821C03C759009BE9AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 965440741C03C722009BE9AD /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
 		9671730B1BFBC1CF000DCC9E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 967172EE1BFBC1CF000DCC9E /* Project object */;
@@ -42,6 +72,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		96FB590C1C03C5DE000AD6B0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				965440811C03C759009BE9AD /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		6DC285474E6FC588B5DA8CDB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		9633CA6A1BFBFB2B003E915A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -49,7 +93,8 @@
 		9633CA6F1BFC0E85003E915A /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		9633CA711BFC1715003E915A /* LogHappinessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogHappinessViewController.swift; sourceTree = "<group>"; };
 		9633CA731BFC1739003E915A /* LogHappiness.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogHappiness.xib; sourceTree = "<group>"; };
-		9633CA751BFC24B8003E915A /* HappinessTracker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HappinessTracker.xib; sourceTree = "<group>"; };
+		965440741C03C722009BE9AD /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../Downloads/ios-charts-master/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
+		965440841C03C7C7009BE9AD /* HappinessChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HappinessChartViewController.swift; sourceTree = "<group>"; };
 		967172F61BFBC1CF000DCC9E /* Happy Habits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Happy Habits.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		967172F91BFBC1CF000DCC9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		967172FB1BFBC1CF000DCC9E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,8 +109,8 @@
 		967173191BFBC1CF000DCC9E /* Happy_HabitsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Happy_HabitsUITests.swift; sourceTree = "<group>"; };
 		9671731B1BFBC1CF000DCC9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96CA02541BFBD01000D3D098 /* Habit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
-		96CA02571BFBD5DB00D3D098 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		96D445981BFBF188007D9EF2 /* Happy Habits-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Happy Habits-Bridging-Header.h"; sourceTree = "<group>"; };
+		96EB31001BFE959D008811C7 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		9CC09C552FB1D24FFAB78CF0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F447DF397EA446035738EA26 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +121,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADD31F1E72E6960C5F1FB6F0 /* libPods.a in Frameworks */,
+				965440801C03C759009BE9AD /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +142,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9627EC291C04000800A17318 /* Signup/Login */ = {
+			isa = PBXGroup;
+			children = (
+				9633CA6A1BFBFB2B003E915A /* LoginViewController.swift */,
+				9633CA6F1BFC0E85003E915A /* SignUpViewController.swift */,
+			);
+			name = Signup/Login;
+			sourceTree = "<group>";
+		};
+		965440751C03C722009BE9AD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9654407B1C03C722009BE9AD /* Charts.framework */,
+				9654407D1C03C722009BE9AD /* Charts.framework */,
+				9654407F1C03C722009BE9AD /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		967172ED1BFBC1CF000DCC9E = {
 			isa = PBXGroup;
 			children = (
@@ -160,7 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				96CA02541BFBD01000D3D098 /* Habit.swift */,
-				96CA02571BFBD5DB00D3D098 /* User.swift */,
+				96EB31001BFE959D008811C7 /* Log.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -169,9 +234,9 @@
 			isa = PBXGroup;
 			children = (
 				967172FB1BFBC1CF000DCC9E /* ViewController.swift */,
-				9633CA6A1BFBFB2B003E915A /* LoginViewController.swift */,
-				9633CA6F1BFC0E85003E915A /* SignUpViewController.swift */,
+				965440841C03C7C7009BE9AD /* HappinessChartViewController.swift */,
 				9633CA711BFC1715003E915A /* LogHappinessViewController.swift */,
+				9627EC291C04000800A17318 /* Signup/Login */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -179,10 +244,9 @@
 		96CA025A1BFBE4D400D3D098 /* Storyboards & Xibs */ = {
 			isa = PBXGroup;
 			children = (
-				967172FD1BFBC1CF000DCC9E /* Main.storyboard */,
 				967173021BFBC1CF000DCC9E /* LaunchScreen.storyboard */,
+				967172FD1BFBC1CF000DCC9E /* Main.storyboard */,
 				9633CA731BFC1739003E915A /* LogHappiness.xib */,
-				9633CA751BFC24B8003E915A /* HappinessTracker.xib */,
 			);
 			name = "Storyboards & Xibs";
 			sourceTree = "<group>";
@@ -192,6 +256,7 @@
 			children = (
 				9633CA6D1BFBFDF4003E915A /* Norican-Regular.ttf */,
 				96D445981BFBF188007D9EF2 /* Happy Habits-Bridging-Header.h */,
+				965440741C03C722009BE9AD /* Charts.xcodeproj */,
 				967173001BFBC1CF000DCC9E /* Assets.xcassets */,
 				967173051BFBC1CF000DCC9E /* Info.plist */,
 			);
@@ -220,10 +285,12 @@
 				967172F41BFBC1CF000DCC9E /* Resources */,
 				18C6F04CD04A26E17056CB23 /* Embed Pods Frameworks */,
 				D2DAF1CA2464751BE44CB262 /* Copy Pods Resources */,
+				96FB590C1C03C5DE000AD6B0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				965440831C03C759009BE9AD /* PBXTargetDependency */,
 			);
 			name = "Happy Habits";
 			productName = "Happy Habits";
@@ -300,6 +367,12 @@
 			mainGroup = 967172ED1BFBC1CF000DCC9E;
 			productRefGroup = 967172F71BFBC1CF000DCC9E /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 965440751C03C722009BE9AD /* Products */;
+					ProjectRef = 965440741C03C722009BE9AD /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				967172F51BFBC1CF000DCC9E /* Happy Habits */,
@@ -309,6 +382,30 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		9654407B1C03C722009BE9AD /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 9654407A1C03C722009BE9AD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9654407D1C03C722009BE9AD /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 9654407C1C03C722009BE9AD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9654407F1C03C722009BE9AD /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 9654407E1C03C722009BE9AD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		967172F41BFBC1CF000DCC9E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
@@ -316,7 +413,6 @@
 			files = (
 				9633CA6E1BFBFDF4003E915A /* Norican-Regular.ttf in Resources */,
 				967173041BFBC1CF000DCC9E /* LaunchScreen.storyboard in Resources */,
-				9633CA761BFC24B8003E915A /* HappinessTracker.xib in Resources */,
 				967173011BFBC1CF000DCC9E /* Assets.xcassets in Resources */,
 				9633CA741BFC1739003E915A /* LogHappiness.xib in Resources */,
 				967172FF1BFBC1CF000DCC9E /* Main.storyboard in Resources */,
@@ -393,11 +489,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9633CA701BFC0E85003E915A /* SignUpViewController.swift in Sources */,
-				96CA02581BFBD5DB00D3D098 /* User.swift in Sources */,
 				9633CA721BFC1715003E915A /* LogHappinessViewController.swift in Sources */,
 				9633CA6B1BFBFB2B003E915A /* LoginViewController.swift in Sources */,
 				96CA02551BFBD01000D3D098 /* Habit.swift in Sources */,
 				967172FC1BFBC1CF000DCC9E /* ViewController.swift in Sources */,
+				965440851C03C7C7009BE9AD /* HappinessChartViewController.swift in Sources */,
+				96EB31011BFE959D008811C7 /* Log.swift in Sources */,
 				967172FA1BFBC1CF000DCC9E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,6 +518,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		965440831C03C759009BE9AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Charts-iOS";
+			targetProxy = 965440821C03C759009BE9AD /* PBXContainerItemProxy */;
+		};
 		9671730C1BFBC1CF000DCC9E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 967172F51BFBC1CF000DCC9E /* Happy Habits */;
@@ -542,6 +644,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/maggy/Documents/FacebookSDK,
@@ -563,6 +666,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/maggy/Documents/FacebookSDK,
