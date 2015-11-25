@@ -14,7 +14,7 @@ class LoginViewController : PFLogInViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        logInView?.autoresizesSubviews
         
         self.fields = [.UsernameAndPassword, .LogInButton, .SignUpButton, .PasswordForgotten, .Facebook, .Twitter]
         self.emailAsUsername = true
@@ -31,7 +31,9 @@ class LoginViewController : PFLogInViewController {
         logo.font = UIFont(name: "Norican-Regular", size: 70)
         logo.shadowColor = UIColor.lightGrayColor()
         logo.shadowOffset = CGSizeMake(2, 2)
+        logo.adjustsFontSizeToFitWidth = true
         logInView?.logo = logo
+        
         
         // set forgotten password button to white
         logInView?.passwordForgottenButton?.setTitleColor(UIColor.whiteColor(), forState: .Normal)

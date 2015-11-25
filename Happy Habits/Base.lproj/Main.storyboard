@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -22,8 +23,26 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <animations/>
                             </imageView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cGx-I5-0Q4">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="Mvt-Gc-nNQ"/>
+                                    <constraint firstAttribute="width" secondItem="cGx-I5-0Q4" secondAttribute="height" multiplier="150:11" id="S4v-6T-kdg"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem id="hcr-LA-A2Z">
+                                        <barButtonItem key="rightBarButtonItem" title="Menu" id="BUa-P6-yUh"/>
+                                    </navigationItem>
+                                </items>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="S4v-6T-kdg"/>
+                                    </mask>
+                                </variation>
+                            </navigationBar>
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D41-AN-73Q">
-                                <rect key="frame" x="20" y="28" width="560" height="51"/>
+                                <rect key="frame" x="28" y="72" width="560" height="195"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -34,24 +53,28 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="D41-AN-73Q" secondAttribute="bottom" constant="472" id="4Lu-CK-HZb"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="D41-AN-73Q" secondAttribute="bottom" constant="284" id="22I-Ix-BBR"/>
                             <constraint firstAttribute="trailing" secondItem="cQQ-fp-Wcy" secondAttribute="trailing" id="6Xm-yg-rrP"/>
+                            <constraint firstItem="D41-AN-73Q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="7ql-44-VvU"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cQQ-fp-Wcy" secondAttribute="bottom" id="BTd-28-I0d"/>
-                            <constraint firstItem="D41-AN-73Q" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="IXD-18-Eyj"/>
-                            <constraint firstItem="D41-AN-73Q" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="OnB-cc-Ffy"/>
+                            <constraint firstItem="D41-AN-73Q" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="8" id="F4C-Oy-X6e"/>
+                            <constraint firstItem="cGx-I5-0Q4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="SFc-A8-o6v"/>
+                            <constraint firstItem="cGx-I5-0Q4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="bL7-CI-qoJ"/>
                             <constraint firstItem="cQQ-fp-Wcy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dHb-40-iMy"/>
                             <constraint firstItem="cQQ-fp-Wcy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="ebI-jl-VWx"/>
-                            <constraint firstItem="D41-AN-73Q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="gD0-wP-z8E"/>
+                            <constraint firstItem="D41-AN-73Q" firstAttribute="top" secondItem="cGx-I5-0Q4" secondAttribute="bottom" constant="8" id="qxf-6Z-pCe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cGx-I5-0Q4" secondAttribute="trailing" constant="-20" id="wSZ-bO-9ix"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="more" id="Afy-6d-nV2"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="containerView" destination="D41-AN-73Q" id="ycB-yK-rrk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1148" y="349"/>
+            <point key="canvasLocation" x="1149" y="339"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="gh9-Yb-Edq">
@@ -62,7 +85,7 @@
                         <viewControllerLayoutGuide type="bottom" id="7mR-mM-8Mf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Qzl-MQ-9BG">
-                        <rect key="frame" x="0.0" y="0.0" width="560" height="51"/>
+                        <rect key="frame" x="0.0" y="0.0" width="560" height="195"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -85,35 +108,57 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rya-eU-sej" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="28" y="86" width="544" height="445"/>
+                                <rect key="frame" x="28" y="106" width="544" height="425"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="e8E-Vo-0Ce">
-                                <rect key="frame" x="176" y="28" width="248" height="29"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Htx-rS-VCi">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                                 <animations/>
-                                <segments>
-                                    <segment title="This Week"/>
-                                    <segment title="This Month"/>
-                                    <segment title="This Year"/>
-                                </segments>
-                                <connections>
-                                    <action selector="timeSelectorChanged:" destination="gWW-ku-nAq" eventType="valueChanged" id="TC5-Jg-9bf"/>
-                                </connections>
-                            </segmentedControl>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Htx-rS-VCi" secondAttribute="height" multiplier="150:11" id="1ze-gJ-6mL"/>
+                                    <constraint firstAttribute="height" constant="64" id="l3K-SR-aCZ"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem id="hrU-Gr-CNN">
+                                        <nil key="title"/>
+                                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="e8E-Vo-0Ce">
+                                            <rect key="frame" x="219.5" y="27" width="161" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <segments>
+                                                <segment title="Week"/>
+                                                <segment title="Month"/>
+                                                <segment title="Year"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="timeSelectorChanged:" destination="gWW-ku-nAq" eventType="valueChanged" id="TC5-Jg-9bf"/>
+                                            </connections>
+                                        </segmentedControl>
+                                        <barButtonItem key="rightBarButtonItem" title="Menu" id="1LG-QZ-qg3"/>
+                                    </navigationItem>
+                                </items>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="1ze-gJ-6mL"/>
+                                    </mask>
+                                </variation>
+                            </navigationBar>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Htx-rS-VCi" firstAttribute="leading" secondItem="jCO-Pb-niC" secondAttribute="leadingMargin" constant="-20" id="4zV-Di-efZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rya-eU-sej" secondAttribute="trailing" constant="8" id="97b-Df-gQ2"/>
+                            <constraint firstItem="rya-eU-sej" firstAttribute="top" secondItem="Htx-rS-VCi" secondAttribute="bottom" constant="42" id="MYg-me-9Sf"/>
                             <constraint firstItem="rya-eU-sej" firstAttribute="leading" secondItem="jCO-Pb-niC" secondAttribute="leadingMargin" constant="8" id="SD7-o2-kdn"/>
-                            <constraint firstItem="e8E-Vo-0Ce" firstAttribute="top" secondItem="gwW-x5-AEV" secondAttribute="bottom" constant="8" id="e98-XF-PnZ"/>
-                            <constraint firstItem="e8E-Vo-0Ce" firstAttribute="centerX" secondItem="jCO-Pb-niC" secondAttribute="centerX" id="hUB-gQ-ErE"/>
-                            <constraint firstItem="rya-eU-sej" firstAttribute="top" secondItem="e8E-Vo-0Ce" secondAttribute="bottom" constant="30" id="lzq-IG-d5W"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Htx-rS-VCi" secondAttribute="trailing" constant="-20" id="Xin-8p-3sa"/>
+                            <constraint firstItem="Htx-rS-VCi" firstAttribute="top" secondItem="jCO-Pb-niC" secondAttribute="topMargin" id="aJd-3B-NNm"/>
                             <constraint firstItem="qUh-rh-UO9" firstAttribute="top" secondItem="rya-eU-sej" secondAttribute="bottom" constant="20" id="zlo-5s-bl3"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="history" id="4Cm-dF-xIC"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="lineChartView" destination="rya-eU-sej" id="EOL-ry-dvY"/>
                         <outlet property="timeSelector" destination="e8E-Vo-0Ce" id="sln-w8-uPx"/>

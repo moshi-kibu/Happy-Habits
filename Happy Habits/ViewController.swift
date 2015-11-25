@@ -16,7 +16,6 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        PFUser.logOut()
         user = PFUser.currentUser()
         if user?.username != nil {
            self.logs = Log.findLogsForCurrentUser()
@@ -34,9 +33,7 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
             parseLoginViewController.signUpController?.delegate = self
             self.presentViewController(parseLoginViewController, animated: false, completion: nil)
         } else {
-            self.containerView.hidden = false
-            self.showHappyLog()
-            if self.userLoggedHappinessToday(logs.last) == true {
+            if self.userLoggedHappinessToday(logs.last) == false {
                 self.containerView.hidden = false
                 self.showHappyLog()
             }

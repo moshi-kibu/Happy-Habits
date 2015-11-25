@@ -96,98 +96,98 @@ class HappinessChartViewController: UIViewController {
         var colors : [UIColor] = []
         var average : Double = 0
         
-        let testLogs = testDataSet()
+        var logsForDateRange = logs.filter({($0["loggedAt"]! as! NSDate) >= minDate && ($0["loggedAt"]! as! NSDate) <= maxDate})
+        if logsForDateRange.count > 1 {
+            
         
-        var logsForDateRange = testLogs.filter({($0["loggedAt"]! as! NSDate) >= minDate && ($0["loggedAt"]! as! NSDate) <= maxDate})
-        
-        if logsForDateRange.count >= 1 && forYear == false {
-            for i in 0..<logsForDateRange.count {
-                let log = logsForDateRange[i]
-                let value = Double(log.happinessLevel)
-                average += value
-                
-                let dataEntry = ChartDataEntry(value: value, xIndex: i)
-                colors.append(selectColor(value))
-                dataEntries.append(dataEntry)
-                dates.append(String(log["loggedAt"]))
-            }
-            average = Double(average / Double(logsForDateRange.count))
-        }
-        else {
-            let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-            var monthsCounted = 0
-            for i in 0..<months.count {
-                var monthInt = 0
-                switch months[i] {
-                    case "January":
-                        monthInt = 1
-                    break
-                    case "February":
-                        monthInt = 2
-                    break
-                    case "March":
-                        monthInt = 3
-                    break
-                    case "April":
-                        monthInt = 4
-                    break
-                    case "May":
-                        monthInt = 5
-                    break
-                    case "June":
-                        monthInt = 6
-                    break
-                    case "July":
-                        monthInt = 7
-                    break
-                    case "August":
-                        monthInt = 8
-                    break
-                    case "September":
-                        monthInt = 9
-                    break
-                    case "October":
-                        monthInt = 10
-                    break
-                    case "November":
-                        monthInt = 11
-                    break
-                    case "December":
-                        monthInt = 12
-                    break
-                default:
-                    break
-                }
-                
-                let monthLogs = logsForDateRange.filter({dateIsInMonth($0["loggedAt"] as! NSDate, month: monthInt)})
-                
-                
-                if monthLogs.count > 0 {
-                    monthsCounted += 1
-                    var averageMonthValue = 0
+            if forYear == false {
+                for i in 0..<logsForDateRange.count {
+                    let log = logsForDateRange[i]
+                    let value = Double(log.happinessLevel)
+                    average += value
                     
-                    for log in monthLogs {
-                        averageMonthValue += log.happinessLevel
+                    let dataEntry = ChartDataEntry(value: value, xIndex: i)
+                    colors.append(selectColor(value))
+                    dataEntries.append(dataEntry)
+                    dates.append(String(log["loggedAt"]))
+                }
+                average = Double(average / Double(logsForDateRange.count))
+            }
+            else {
+                let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+                var monthsCounted = 0
+                for i in 0..<months.count {
+                    var monthInt = 0
+                    switch months[i] {
+                        case "January":
+                            monthInt = 1
+                        break
+                        case "February":
+                            monthInt = 2
+                        break
+                        case "March":
+                            monthInt = 3
+                        break
+                        case "April":
+                            monthInt = 4
+                        break
+                        case "May":
+                            monthInt = 5
+                        break
+                        case "June":
+                            monthInt = 6
+                        break
+                        case "July":
+                            monthInt = 7
+                        break
+                        case "August":
+                            monthInt = 8
+                        break
+                        case "September":
+                            monthInt = 9
+                        break
+                        case "October":
+                            monthInt = 10
+                        break
+                        case "November":
+                            monthInt = 11
+                        break
+                        case "December":
+                            monthInt = 12
+                        break
+                    default:
+                        break
                     }
                     
-                    let monthValue = Double(averageMonthValue/monthLogs.count)
-                    average += monthValue
+                    let monthLogs = logsForDateRange.filter({dateIsInMonth($0["loggedAt"] as! NSDate, month: monthInt)})
                     
                     
-                    let dataEntry = ChartDataEntry(value: monthValue , xIndex: monthsCounted)
-                    colors.append(selectColor(monthValue))
-                    dataEntries.append(dataEntry)
-                    dates.append(months[i])
+                    if monthLogs.count > 0 {
+                        monthsCounted += 1
+                        var averageMonthValue = 0
+                        
+                        for log in monthLogs {
+                            averageMonthValue += log.happinessLevel
+                        }
+                        
+                        let monthValue = Double(averageMonthValue/monthLogs.count)
+                        average += monthValue
+                        
+                        
+                        let dataEntry = ChartDataEntry(value: monthValue , xIndex: monthsCounted)
+                        colors.append(selectColor(monthValue))
+                        dataEntries.append(dataEntry)
+                        dates.append(months[i])
+                    }
                 }
+                average = (average / Double(monthsCounted))
             }
-            average = (average / Double(monthsCounted))
+            setLimitLine(average)
+            let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "Happiness Level")
+            let lineChartData = LineChartData(xVals: dates, dataSet: lineChartDataSet)
+            lineChartDataSet.circleColors = colors
+            lineChartView.data = lineChartData
         }
-        setLimitLine(average)
-        let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "Happiness Level")
-        let lineChartData = LineChartData(xVals: dates, dataSet: lineChartDataSet)
-        lineChartDataSet.circleColors = colors
-        lineChartView.data = lineChartData
-        print(lineChartData)
     }
     
     func dateIsInMonth(date: NSDate, month: Int) -> Bool {
