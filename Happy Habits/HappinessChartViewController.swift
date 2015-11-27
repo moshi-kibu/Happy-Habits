@@ -21,7 +21,7 @@ public func <(lhs: NSDate, rhs: NSDate) -> Bool {
 extension NSDate: Comparable { }
 
 
-class HappinessChartViewController: UIViewController {
+class HappinessChartViewController: UIViewController, ENSideMenuDelegate {
     
     @IBOutlet weak var lineChartView: LineChartView!
     @IBOutlet weak var timeSelector: UISegmentedControl!
@@ -29,13 +29,17 @@ class HappinessChartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.sideMenuController()?.sideMenu?.delegate = self
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(animated: Bool) {
         self.logs = Log.findLogsForCurrentUser()
         checkSelectorAndSetChart()
+    }
+    
+    @IBAction func menuButtonTapped(sender: AnyObject) {
+        toggleSideMenuView()
     }
 
     @IBAction func timeSelectorChanged(sender: UISegmentedControl) {

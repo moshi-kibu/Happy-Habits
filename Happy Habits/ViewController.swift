@@ -112,7 +112,7 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     
     func showHabitsTable() {
         let habitsTable = UserHabitsTableViewController()
-        habitsTable.view.frame = CGRectMake(0, 0, self.bottomContainerView.frame.size.width, self.topContainerView.frame.size.height);
+        habitsTable.view.frame = CGRectMake(0, 0, self.bottomContainerView.frame.size.width, self.bottomContainerView.frame.size.height);
         self.bottomContainerView.addSubview(habitsTable.view)
         habitsTable.didMoveToParentViewController(self)
     }

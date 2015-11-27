@@ -28,7 +28,6 @@ class MenuTableViewController: UITableViewController {
         tableView.separatorStyle = .None
         tableView.backgroundColor = UIColor.blackColor()
         tableView.scrollsToTop = false
-        tableView.selectRowAtIndexPath(NSIndexPath(forRow: selectedMenuItem, inSection: 0), animated: false, scrollPosition: .Middle)
     }
     
     // MARK: - Table view data source
@@ -81,9 +80,9 @@ class MenuTableViewController: UITableViewController {
     
     func logOutUser() {
         PFUser.logOut()
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
-        let destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("ViewController")
-        sideMenuController()?.setContentViewController(destViewController)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController()
+        self.presentViewController(vc!, animated: false, completion: nil)
     }
     
     

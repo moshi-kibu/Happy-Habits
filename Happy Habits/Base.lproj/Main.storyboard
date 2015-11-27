@@ -134,7 +134,11 @@
                                 <action selector="timeSelectorChanged:" destination="gWW-ku-nAq" eventType="valueChanged" id="TC5-Jg-9bf"/>
                             </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" title="Menu" id="cF8-9x-duh"/>
+                        <barButtonItem key="rightBarButtonItem" title="Menu" id="cF8-9x-duh">
+                            <connections>
+                                <action selector="menuButtonTapped:" destination="gWW-ku-nAq" id="JZz-x4-rYz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
@@ -266,10 +270,10 @@
             </objects>
             <point key="canvasLocation" x="1217" y="843"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Slide Menu View Controller-->
         <scene sceneID="hrI-5d-HoQ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mPs-CQ-z5G" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mPs-CQ-z5G" customClass="SlideMenuViewController" customModule="Happy_Habits" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="history" id="4Cm-dF-xIC"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XTO-gu-zo2">
