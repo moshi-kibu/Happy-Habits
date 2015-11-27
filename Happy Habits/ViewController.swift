@@ -10,16 +10,15 @@ import UIKit
 
 class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
     
-    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var topContainerView: UIView!
+    @IBOutlet weak var bottomContainerView: UIView!
+
     var user = PFUser.currentUser()
     var logs : [Log] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         user = PFUser.currentUser()
-        if user?.username != nil {
-           self.logs = Log.findLogsForCurrentUser()
-        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -33,9 +32,15 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
             parseLoginViewController.signUpController?.delegate = self
             self.presentViewController(parseLoginViewController, animated: false, completion: nil)
         } else {
-            if self.userLoggedHappinessToday(logs.last) == false {
-                self.containerView.hidden = false
-                self.showHappyLog()
+            self.showHabitsTable()
+            self.showHappyLogOrHappyQuotes()
+        }
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        if self.topContainerView.subviews.count > 0 {
+            for view in self.topContainerView.subviews {
+                view.removeFromSuperview()
             }
         }
     }
@@ -65,23 +70,50 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
         user = PFUser.currentUser()
         if user!["HappinessLog"] == nil {
             user!["HappinessLog"] = []
+            user!["Habits"] = []
             user?.saveEventually()
+        }
+    }
+    
+    func showHappyLogOrHappyQuotes() {
+        dispatch_async(dispatch_get_main_queue()) {
+            self.logs = Log.findLogsForCurrentUser()
+            if self.userLoggedHappinessToday(self.logs.last) == false {
+                self.showHappyLog()
+            } else {
+                self.showHappyQuotes()
+            }
         }
     }
     
     func showHappyLog() {
         let happinessLogController = LogHappinessViewController()
         self.addChildViewController(happinessLogController)
-        happinessLogController.view.frame = CGRectMake(0, 0, self.containerView.frame.size.width, self.containerView.frame.size.height);
-        self.containerView.addSubview(happinessLogController.view)
+        happinessLogController.view.frame = CGRectMake(0, 0, self.topContainerView.frame.size.width, self.topContainerView.frame.size.height);
+        self.topContainerView.addSubview(happinessLogController.view)
         happinessLogController.didMoveToParentViewController(self)
     }
     
+    func showHappyQuotes() {
+        let quotesViewController = QuotePageViewController()
+        self.addChildViewController(quotesViewController)
+        quotesViewController.view.frame = CGRectMake(0,0, self.topContainerView.frame.size.width, self.topContainerView.frame.size.height)
+        self.topContainerView.addSubview(quotesViewController.view)
+        quotesViewController.didMoveToParentViewController(self)
+    }
+    
     func removeHappyLog(childController: UIViewController) {
-        self.containerView.hidden = true
+        self.topContainerView.hidden = true
         childController.didMoveToParentViewController(nil)
         childController.view.removeFromSuperview()
         childController.removeFromParentViewController()
+    }
+    
+    func showHabitsTable() {
+        let habitsTable = UserHabitsTableViewController()
+        habitsTable.view.frame = CGRectMake(0, 0, self.bottomContainerView.frame.size.width, self.topContainerView.frame.size.height);
+        self.bottomContainerView.addSubview(habitsTable.view)
+        habitsTable.didMoveToParentViewController(self)
     }
 
     override func didReceiveMemoryWarning() {

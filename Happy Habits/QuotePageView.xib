@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuotePageViewController" customModule="Happy_Habits" customModuleProvider="target">
+            <connections>
+                <outlet property="QuoteLabel" destination="81E-fg-MEN" id="Ica-va-qHL"/>
+                <outlet property="quotePageControl" destination="bTd-jP-xog" id="pGY-6f-Y6O"/>
+                <outlet property="view" destination="iN0-l3-epB" id="s2U-Ft-Pme"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="212"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81E-fg-MEN">
+                    <rect key="frame" x="8" y="8" width="584" height="159"/>
+                    <animations/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="159" id="IkU-BD-gGZ"/>
+                        <constraint firstAttribute="width" constant="584" id="f1b-gX-GKZ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="bTd-jP-xog">
+                    <rect key="frame" x="281" y="175" width="39" height="37"/>
+                    <animations/>
+                    <connections>
+                        <action selector="changeScreen:" destination="-1" eventType="valueChanged" id="PYD-9F-dm4"/>
+                    </connections>
+                </pageControl>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" red="0.28627450980000002" green="0.0" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="bTd-jP-xog" secondAttribute="bottom" id="1Tg-Yp-kaf"/>
+                <constraint firstItem="bTd-jP-xog" firstAttribute="top" secondItem="81E-fg-MEN" secondAttribute="bottom" constant="8" id="CfC-eG-AzQ"/>
+                <constraint firstItem="81E-fg-MEN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="N0c-YN-ugV"/>
+                <constraint firstItem="81E-fg-MEN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="a7i-BT-Lz8"/>
+                <constraint firstAttribute="trailing" secondItem="81E-fg-MEN" secondAttribute="trailing" constant="8" id="bto-rX-Cg8"/>
+                <constraint firstItem="bTd-jP-xog" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="cGf-sz-02X"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="Aok-SR-jjG" appends="YES" id="cN0-vd-1wT"/>
+                <outletCollection property="gestureRecognizers" destination="DXI-gf-wnd" appends="YES" id="fn0-8S-WP5"/>
+            </connections>
+            <point key="canvasLocation" x="306" y="83"/>
+        </view>
+        <swipeGestureRecognizer direction="right" id="Aok-SR-jjG">
+            <connections>
+                <action selector="swipeRight:" destination="-1" id="5CC-1n-YtN"/>
+            </connections>
+        </swipeGestureRecognizer>
+        <swipeGestureRecognizer direction="left" id="DXI-gf-wnd">
+            <connections>
+                <action selector="swipeLeft:" destination="-1" id="6fY-q7-4aY"/>
+            </connections>
+        </swipeGestureRecognizer>
+    </objects>
+</document>

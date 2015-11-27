@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HabitDetailViewController" customModule="Happy_Habits" customModuleProvider="target">
+            <connections>
+                <outlet property="habitButton" destination="7h1-tZ-Sox" id="amv-mN-k2V"/>
+                <outlet property="holderView" destination="3QL-k4-mJu" id="5l7-iZ-hAm"/>
+                <outlet property="studyButton" destination="HoF-te-Pyo" id="Ok5-yh-sU9"/>
+                <outlet property="view" destination="iN0-l3-epB" id="Rcj-me-EqF"/>
+                <outlet property="webView" destination="iZE-JA-GXP" id="Ub3-zd-is1"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HoF-te-Pyo">
+                    <rect key="frame" x="522" y="562" width="70" height="30"/>
+                    <animations/>
+                    <state key="normal" title="See Study"/>
+                    <connections>
+                        <action selector="seeStudyButtonTapped:" destination="-1" eventType="touchUpInside" id="QsX-zi-bre"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7h1-tZ-Sox">
+                    <rect key="frame" x="8" y="562" width="82" height="30"/>
+                    <animations/>
+                    <state key="normal" title="Adopt Habit"/>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3QL-k4-mJu">
+                    <rect key="frame" x="8" y="72" width="584" height="482"/>
+                    <animations/>
+                    <color key="backgroundColor" red="1" green="0.16640101509999999" blue="0.39468188360000001" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iZE-JA-GXP">
+                    <rect key="frame" x="8" y="72" width="584" height="482"/>
+                    <animations/>
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                </webView>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="7h1-tZ-Sox" firstAttribute="top" secondItem="iZE-JA-GXP" secondAttribute="bottom" constant="8" id="6GJ-nY-94M"/>
+                <constraint firstItem="iZE-JA-GXP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="72" id="6Q3-U6-hrS"/>
+                <constraint firstItem="7h1-tZ-Sox" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="7zp-1H-JLo"/>
+                <constraint firstAttribute="trailing" secondItem="HoF-te-Pyo" secondAttribute="trailing" constant="8" id="ErI-y3-Ytm"/>
+                <constraint firstAttribute="trailing" secondItem="iZE-JA-GXP" secondAttribute="trailing" constant="8" id="Hvy-wc-N2l"/>
+                <constraint firstItem="iZE-JA-GXP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Ndb-VU-zqZ"/>
+                <constraint firstItem="7h1-tZ-Sox" firstAttribute="top" secondItem="3QL-k4-mJu" secondAttribute="bottom" constant="8" id="Zqr-X6-ct2"/>
+                <constraint firstItem="3QL-k4-mJu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="bUG-pf-hjv"/>
+                <constraint firstItem="3QL-k4-mJu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="72" id="hxn-i6-5wE"/>
+                <constraint firstAttribute="bottom" secondItem="HoF-te-Pyo" secondAttribute="bottom" constant="8" id="kgS-xX-prb"/>
+                <constraint firstAttribute="trailing" secondItem="3QL-k4-mJu" secondAttribute="trailing" constant="8" id="m9o-jG-bZD"/>
+                <constraint firstAttribute="bottom" secondItem="7h1-tZ-Sox" secondAttribute="bottom" constant="8" id="rYt-Nq-fsD"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+        </view>
+    </objects>
+</document>

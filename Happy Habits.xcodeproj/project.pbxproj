@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9627EC2B1C062E5400A17318 /* UserHabitsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9627EC2A1C062E5400A17318 /* UserHabitsTableViewController.swift */; };
+		9627EC2F1C06352C00A17318 /* UserHabitsTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9627EC2E1C06352C00A17318 /* UserHabitsTableHeader.xib */; };
+		9627EC321C06366300A17318 /* UserHabitsTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9627EC311C06366300A17318 /* UserHabitsTableHeader.swift */; };
+		9627EC341C063A2F00A17318 /* AllHabitsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9627EC331C063A2F00A17318 /* AllHabitsCollectionViewController.swift */; };
+		9627EC381C06409100A17318 /* HabitCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9627EC371C06409100A17318 /* HabitCollectionCell.xib */; };
+		9627EC3A1C06417700A17318 /* HabitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9627EC391C06417700A17318 /* HabitCollectionViewCell.swift */; };
+		9627EC3C1C06674300A17318 /* HabitDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9627EC3B1C06674300A17318 /* HabitDetailView.xib */; };
+		9627EC3E1C06683800A17318 /* HabitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9627EC3D1C06683800A17318 /* HabitDetailViewController.swift */; };
 		9633CA6B1BFBFB2B003E915A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9633CA6A1BFBFB2B003E915A /* LoginViewController.swift */; };
 		9633CA6E1BFBFDF4003E915A /* Norican-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9633CA6D1BFBFDF4003E915A /* Norican-Regular.ttf */; };
 		9633CA701BFC0E85003E915A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9633CA6F1BFC0E85003E915A /* SignUpViewController.swift */; };
@@ -22,6 +30,9 @@
 		967173041BFBC1CF000DCC9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 967173021BFBC1CF000DCC9E /* LaunchScreen.storyboard */; };
 		9671730F1BFBC1CF000DCC9E /* Happy_HabitsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9671730E1BFBC1CF000DCC9E /* Happy_HabitsTests.swift */; };
 		9671731A1BFBC1CF000DCC9E /* Happy_HabitsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967173191BFBC1CF000DCC9E /* Happy_HabitsUITests.swift */; };
+		96B620F01C08D8180040365F /* QuotePageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96B620EF1C08D8180040365F /* QuotePageView.xib */; };
+		96B620F41C08DA8B0040365F /* QuotePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B620F31C08DA8B0040365F /* QuotePageViewController.swift */; };
+		96B620F61C08E3670040365F /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B620F51C08E3670040365F /* Quote.swift */; };
 		96CA02551BFBD01000D3D098 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA02541BFBD01000D3D098 /* Habit.swift */; };
 		96EB31011BFE959D008811C7 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EB31001BFE959D008811C7 /* Log.swift */; };
 		ADD31F1E72E6960C5F1FB6F0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC09C552FB1D24FFAB78CF0 /* libPods.a */; };
@@ -88,6 +99,14 @@
 
 /* Begin PBXFileReference section */
 		6DC285474E6FC588B5DA8CDB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		9627EC2A1C062E5400A17318 /* UserHabitsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHabitsTableViewController.swift; sourceTree = "<group>"; };
+		9627EC2E1C06352C00A17318 /* UserHabitsTableHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserHabitsTableHeader.xib; sourceTree = "<group>"; };
+		9627EC311C06366300A17318 /* UserHabitsTableHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHabitsTableHeader.swift; sourceTree = "<group>"; };
+		9627EC331C063A2F00A17318 /* AllHabitsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllHabitsCollectionViewController.swift; path = ../AllHabitsCollectionViewController.swift; sourceTree = "<group>"; };
+		9627EC371C06409100A17318 /* HabitCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HabitCollectionCell.xib; sourceTree = "<group>"; };
+		9627EC391C06417700A17318 /* HabitCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HabitCollectionViewCell.swift; sourceTree = "<group>"; };
+		9627EC3B1C06674300A17318 /* HabitDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HabitDetailView.xib; sourceTree = "<group>"; };
+		9627EC3D1C06683800A17318 /* HabitDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HabitDetailViewController.swift; sourceTree = "<group>"; };
 		9633CA6A1BFBFB2B003E915A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9633CA6D1BFBFDF4003E915A /* Norican-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Norican-Regular.ttf"; sourceTree = "<group>"; };
 		9633CA6F1BFC0E85003E915A /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +127,9 @@
 		967173151BFBC1CF000DCC9E /* Happy HabitsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Happy HabitsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		967173191BFBC1CF000DCC9E /* Happy_HabitsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Happy_HabitsUITests.swift; sourceTree = "<group>"; };
 		9671731B1BFBC1CF000DCC9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96B620EF1C08D8180040365F /* QuotePageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuotePageView.xib; sourceTree = "<group>"; };
+		96B620F31C08DA8B0040365F /* QuotePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotePageViewController.swift; sourceTree = "<group>"; };
+		96B620F51C08E3670040365F /* Quote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		96CA02541BFBD01000D3D098 /* Habit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		96D445981BFBF188007D9EF2 /* Happy Habits-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Happy Habits-Bridging-Header.h"; sourceTree = "<group>"; };
 		96EB31001BFE959D008811C7 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -151,6 +173,35 @@
 			name = Signup/Login;
 			sourceTree = "<group>";
 		};
+		9627EC301C06363900A17318 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9627EC311C06366300A17318 /* UserHabitsTableHeader.swift */,
+				9627EC391C06417700A17318 /* HabitCollectionViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		9627EC351C063A5B00A17318 /* Container ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9627EC2A1C062E5400A17318 /* UserHabitsTableViewController.swift */,
+				9633CA711BFC1715003E915A /* LogHappinessViewController.swift */,
+				96B620F31C08DA8B0040365F /* QuotePageViewController.swift */,
+			);
+			name = "Container ViewControllers";
+			sourceTree = "<group>";
+		};
+		9627EC361C063A8E00A17318 /* Tabbar ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				967172FB1BFBC1CF000DCC9E /* ViewController.swift */,
+				965440841C03C7C7009BE9AD /* HappinessChartViewController.swift */,
+				9627EC331C063A2F00A17318 /* AllHabitsCollectionViewController.swift */,
+			);
+			name = "Tabbar ViewControllers";
+			sourceTree = "<group>";
+		};
 		965440751C03C722009BE9AD /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +239,7 @@
 			children = (
 				967172F91BFBC1CF000DCC9E /* AppDelegate.swift */,
 				96CA025A1BFBE4D400D3D098 /* Storyboards & Xibs */,
+				9627EC301C06363900A17318 /* Views */,
 				96CA02591BFBE4B400D3D098 /* ViewControllers */,
 				96CA02561BFBD04900D3D098 /* Models */,
 				96CA025B1BFBE4E600D3D098 /* Supporting Files */,
@@ -226,6 +278,7 @@
 			children = (
 				96CA02541BFBD01000D3D098 /* Habit.swift */,
 				96EB31001BFE959D008811C7 /* Log.swift */,
+				96B620F51C08E3670040365F /* Quote.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -233,9 +286,9 @@
 		96CA02591BFBE4B400D3D098 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				967172FB1BFBC1CF000DCC9E /* ViewController.swift */,
-				965440841C03C7C7009BE9AD /* HappinessChartViewController.swift */,
-				9633CA711BFC1715003E915A /* LogHappinessViewController.swift */,
+				9627EC3D1C06683800A17318 /* HabitDetailViewController.swift */,
+				9627EC361C063A8E00A17318 /* Tabbar ViewControllers */,
+				9627EC351C063A5B00A17318 /* Container ViewControllers */,
 				9627EC291C04000800A17318 /* Signup/Login */,
 			);
 			name = ViewControllers;
@@ -246,7 +299,11 @@
 			children = (
 				967173021BFBC1CF000DCC9E /* LaunchScreen.storyboard */,
 				967172FD1BFBC1CF000DCC9E /* Main.storyboard */,
+				9627EC3B1C06674300A17318 /* HabitDetailView.xib */,
 				9633CA731BFC1739003E915A /* LogHappiness.xib */,
+				96B620EF1C08D8180040365F /* QuotePageView.xib */,
+				9627EC371C06409100A17318 /* HabitCollectionCell.xib */,
+				9627EC2E1C06352C00A17318 /* UserHabitsTableHeader.xib */,
 			);
 			name = "Storyboards & Xibs";
 			sourceTree = "<group>";
@@ -414,7 +471,11 @@
 			files = (
 				9633CA6E1BFBFDF4003E915A /* Norican-Regular.ttf in Resources */,
 				967173041BFBC1CF000DCC9E /* LaunchScreen.storyboard in Resources */,
+				96B620F01C08D8180040365F /* QuotePageView.xib in Resources */,
+				9627EC3C1C06674300A17318 /* HabitDetailView.xib in Resources */,
 				967173011BFBC1CF000DCC9E /* Assets.xcassets in Resources */,
+				9627EC381C06409100A17318 /* HabitCollectionCell.xib in Resources */,
+				9627EC2F1C06352C00A17318 /* UserHabitsTableHeader.xib in Resources */,
 				9633CA741BFC1739003E915A /* LogHappiness.xib in Resources */,
 				967172FF1BFBC1CF000DCC9E /* Main.storyboard in Resources */,
 			);
@@ -491,12 +552,19 @@
 			files = (
 				9633CA701BFC0E85003E915A /* SignUpViewController.swift in Sources */,
 				9633CA721BFC1715003E915A /* LogHappinessViewController.swift in Sources */,
+				9627EC321C06366300A17318 /* UserHabitsTableHeader.swift in Sources */,
 				9633CA6B1BFBFB2B003E915A /* LoginViewController.swift in Sources */,
+				96B620F41C08DA8B0040365F /* QuotePageViewController.swift in Sources */,
 				96CA02551BFBD01000D3D098 /* Habit.swift in Sources */,
+				9627EC341C063A2F00A17318 /* AllHabitsCollectionViewController.swift in Sources */,
 				967172FC1BFBC1CF000DCC9E /* ViewController.swift in Sources */,
 				965440851C03C7C7009BE9AD /* HappinessChartViewController.swift in Sources */,
+				9627EC3E1C06683800A17318 /* HabitDetailViewController.swift in Sources */,
 				96EB31011BFE959D008811C7 /* Log.swift in Sources */,
 				967172FA1BFBC1CF000DCC9E /* AppDelegate.swift in Sources */,
+				9627EC2B1C062E5400A17318 /* UserHabitsTableViewController.swift in Sources */,
+				96B620F61C08E3670040365F /* Quote.swift in Sources */,
+				9627EC3A1C06417700A17318 /* HabitCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

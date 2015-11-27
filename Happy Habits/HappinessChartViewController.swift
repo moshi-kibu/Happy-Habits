@@ -97,7 +97,7 @@ class HappinessChartViewController: UIViewController {
         var average : Double = 0
         
         var logsForDateRange = logs.filter({($0["loggedAt"]! as! NSDate) >= minDate && ($0["loggedAt"]! as! NSDate) <= maxDate})
-        if logsForDateRange.count > 1 {
+        if logsForDateRange.count >= 1 {
             
         
             if forYear == false {

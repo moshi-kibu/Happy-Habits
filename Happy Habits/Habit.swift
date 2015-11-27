@@ -10,12 +10,14 @@ import Foundation
 
 class Habit: PFObject, PFSubclassing  {
     @NSManaged var title : String
+    @NSManaged var level : String
     @NSManaged var details : String
     @NSManaged var studyURL : String
     
-    init(title:String, details: String, studyURL: String) {
+    init(title:String, level: String, details: String, studyURL: String) {
         super.init()
         self.title = title
+        self.level = level
         self.details = details
         self.studyURL = studyURL
     }
@@ -35,6 +37,18 @@ class Habit: PFObject, PFSubclassing  {
     
     static func parseClassName() -> String {
         return "Habit"
+    }
+    
+    class func getAllHabits() -> [Habit] {
+        var habits = [Habit]()
+        let query = PFQuery(className:"Habit")
+        query.limit = 1000
+        do {
+            habits = try query.findObjects() as! [Habit]
+        } catch {
+            
+        }
+        return habits
     }
     
 }

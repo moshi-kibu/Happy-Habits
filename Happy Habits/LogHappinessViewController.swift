@@ -16,6 +16,7 @@ class LogHappinessViewController: UIViewController {
     override func viewDidLoad() {
         self.view = NSBundle.mainBundle().loadNibNamed("LogHappiness", owner:self, options:nil)![0] as! UIView
         self.view.backgroundColor = self.view.backgroundColor!.colorWithAlphaComponent(0.5)
+        happyLogSlider.continuous = true
         // Do any additional setup after loading the view.
     }
 
