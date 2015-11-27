@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
+class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, ENSideMenuDelegate {
     
     @IBOutlet weak var topContainerView: UIView!
     @IBOutlet weak var bottomContainerView: UIView!
@@ -19,6 +19,7 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     override func viewDidLoad() {
         super.viewDidLoad()
         user = PFUser.currentUser()
+        self.sideMenuController()?.sideMenu?.delegate = self
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -114,6 +115,10 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
         habitsTable.view.frame = CGRectMake(0, 0, self.bottomContainerView.frame.size.width, self.topContainerView.frame.size.height);
         self.bottomContainerView.addSubview(habitsTable.view)
         habitsTable.didMoveToParentViewController(self)
+    }
+    
+    @IBAction func menuButtonTapped(sender: AnyObject) {
+        toggleSideMenuView()
     }
 
     override func didReceiveMemoryWarning() {
