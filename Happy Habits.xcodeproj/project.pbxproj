@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9627EC2B1C062E5400A17318 /* UserHabitsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9627EC2A1C062E5400A17318 /* UserHabitsTableViewController.swift */; };
+		961DE5D91C093A1B00306B78 /* UserHabitsTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 961DE5D81C093A1B00306B78 /* UserHabitsTableView.xib */; };
+		961DE5DB1C093D3500306B78 /* UserHabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961DE5DA1C093D3500306B78 /* UserHabitsViewController.swift */; };
 		9627EC2F1C06352C00A17318 /* UserHabitsTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9627EC2E1C06352C00A17318 /* UserHabitsTableHeader.xib */; };
 		9627EC321C06366300A17318 /* UserHabitsTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9627EC311C06366300A17318 /* UserHabitsTableHeader.swift */; };
 		9627EC341C063A2F00A17318 /* AllHabitsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9627EC331C063A2F00A17318 /* AllHabitsCollectionViewController.swift */; };
@@ -39,7 +40,7 @@
 		96B620F61C08E3670040365F /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B620F51C08E3670040365F /* Quote.swift */; };
 		96CA02551BFBD01000D3D098 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA02541BFBD01000D3D098 /* Habit.swift */; };
 		96EB31011BFE959D008811C7 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EB31001BFE959D008811C7 /* Log.swift */; };
-		ADD31F1E72E6960C5F1FB6F0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC09C552FB1D24FFAB78CF0 /* libPods.a */; };
+		F7E08A004F17649242968853 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E777D23C3CEB5EE47EAD87 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,8 +103,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		38E777D23C3CEB5EE47EAD87 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DC285474E6FC588B5DA8CDB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		9627EC2A1C062E5400A17318 /* UserHabitsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHabitsTableViewController.swift; sourceTree = "<group>"; };
+		960BB4741C0C0ECA002F959A /* Lora-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-Regular.ttf"; sourceTree = "<group>"; };
+		961DE5D81C093A1B00306B78 /* UserHabitsTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserHabitsTableView.xib; sourceTree = "<group>"; };
+		961DE5DA1C093D3500306B78 /* UserHabitsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHabitsViewController.swift; sourceTree = "<group>"; };
 		9627EC2E1C06352C00A17318 /* UserHabitsTableHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserHabitsTableHeader.xib; sourceTree = "<group>"; };
 		9627EC311C06366300A17318 /* UserHabitsTableHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHabitsTableHeader.swift; sourceTree = "<group>"; };
 		9627EC331C063A2F00A17318 /* AllHabitsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllHabitsCollectionViewController.swift; path = ../AllHabitsCollectionViewController.swift; sourceTree = "<group>"; };
@@ -141,7 +145,6 @@
 		96CA02541BFBD01000D3D098 /* Habit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		96D445981BFBF188007D9EF2 /* Happy Habits-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Happy Habits-Bridging-Header.h"; sourceTree = "<group>"; };
 		96EB31001BFE959D008811C7 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		9CC09C552FB1D24FFAB78CF0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F447DF397EA446035738EA26 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,8 +153,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADD31F1E72E6960C5F1FB6F0 /* libPods.a in Frameworks */,
 				965440801C03C759009BE9AD /* Charts.framework in Frameworks */,
+				F7E08A004F17649242968853 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,9 +196,9 @@
 		9627EC351C063A5B00A17318 /* Container ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				9627EC2A1C062E5400A17318 /* UserHabitsTableViewController.swift */,
 				9633CA711BFC1715003E915A /* LogHappinessViewController.swift */,
 				96B620F31C08DA8B0040365F /* QuotePageViewController.swift */,
+				961DE5DA1C093D3500306B78 /* UserHabitsViewController.swift */,
 			);
 			name = "Container ViewControllers";
 			sourceTree = "<group>";
@@ -294,7 +297,7 @@
 		96CA02311BFBC67100D3D098 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9CC09C552FB1D24FFAB78CF0 /* libPods.a */,
+				38E777D23C3CEB5EE47EAD87 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				9633CA731BFC1739003E915A /* LogHappiness.xib */,
 				96B620EF1C08D8180040365F /* QuotePageView.xib */,
 				9627EC371C06409100A17318 /* HabitCollectionCell.xib */,
+				961DE5D81C093A1B00306B78 /* UserHabitsTableView.xib */,
 				9627EC2E1C06352C00A17318 /* UserHabitsTableHeader.xib */,
 			);
 			name = "Storyboards & Xibs";
@@ -340,6 +344,7 @@
 			children = (
 				966D31F11C090EF800F11B3F /* Menu Library */,
 				9633CA6D1BFBFDF4003E915A /* Norican-Regular.ttf */,
+				960BB4741C0C0ECA002F959A /* Lora-Regular.ttf */,
 				96D445981BFBF188007D9EF2 /* Happy Habits-Bridging-Header.h */,
 				965440741C03C722009BE9AD /* Charts.xcodeproj */,
 				967173001BFBC1CF000DCC9E /* Assets.xcassets */,
@@ -506,6 +511,7 @@
 				9627EC2F1C06352C00A17318 /* UserHabitsTableHeader.xib in Resources */,
 				9633CA741BFC1739003E915A /* LogHappiness.xib in Resources */,
 				967172FF1BFBC1CF000DCC9E /* Main.storyboard in Resources */,
+				961DE5D91C093A1B00306B78 /* UserHabitsTableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,9 +598,9 @@
 				965440851C03C7C7009BE9AD /* HappinessChartViewController.swift in Sources */,
 				9627EC3E1C06683800A17318 /* HabitDetailViewController.swift in Sources */,
 				96EB31011BFE959D008811C7 /* Log.swift in Sources */,
+				961DE5DB1C093D3500306B78 /* UserHabitsViewController.swift in Sources */,
 				966D31F71C090F6D00F11B3F /* SlideMenuViewController.swift in Sources */,
 				967172FA1BFBC1CF000DCC9E /* AppDelegate.swift in Sources */,
-				9627EC2B1C062E5400A17318 /* UserHabitsTableViewController.swift in Sources */,
 				96B620F61C08E3670040365F /* Quote.swift in Sources */,
 				9627EC3A1C06417700A17318 /* HabitCollectionViewCell.swift in Sources */,
 			);
@@ -747,7 +753,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/maggy/Documents/FacebookSDK,
@@ -772,7 +778,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/maggy/Documents/FacebookSDK,

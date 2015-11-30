@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Parse
 
 class Habit: PFObject, PFSubclassing  {
     @NSManaged var title : String
@@ -45,6 +46,21 @@ class Habit: PFObject, PFSubclassing  {
         query.limit = 1000
         do {
             habits = try query.findObjects() as! [Habit]
+        } catch {
+            
+        }
+        return habits
+    }
+    
+    class func getHabitsForCurrentUser() -> [Habit] {
+        let user = PFUser.currentUser()
+        var habits: [Habit] = []
+        do {
+           let userHabits = user!["Habits"] as! [Habit]
+            for habit in userHabits {
+                let fetchedHabit = try habit.fetch()
+                habits.append(fetchedHabit)
+            }
         } catch {
             
         }

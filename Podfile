@@ -1,3 +1,6 @@
+use_frameworks!
+
+pod 'ChameleonFramework/Swift'
 pod 'Parse'
 pod 'ParseUI'
 pod 'ParseFacebookUtilsV4'

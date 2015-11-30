@@ -7,6 +7,32 @@
 //
 
 import UIKit
+import Parse
+import ParseFacebookUtilsV4
+import ParseTwitterUtils
+import QuartzCore
+import ChameleonFramework
+
+extension UIImage {
+    func imageWithColor(tintColor: UIColor) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+        
+        let context = UIGraphicsGetCurrentContext()! as CGContextRef
+        CGContextTranslateCTM(context, 0, self.size.height)
+        CGContextScaleCTM(context, 1.0, -1.0);
+        CGContextSetBlendMode(context, CGBlendMode.Normal)
+        
+        let rect = CGRectMake(0, 0, self.size.width, self.size.height) as CGRect
+        CGContextClipToMask(context, rect, self.CGImage)
+        tintColor.setFill()
+        CGContextFillRect(context, rect)
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext() as UIImage
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
+}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,6 +56,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
+        
+        self.getInitialData()
+        
+        Chameleon.setGlobalThemeUsingPrimaryColor(UIColor.flatSkyBlueColor(), withContentStyle: UIContentStyle.Contrast)
+        self.setTabBarAppearance()
+
+
         return true
     }
     
@@ -57,6 +90,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func setTabBarAppearance() {
+        UITabBar.appearance().barTintColor = UIColor.flatSkyBlueColor()
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState:.Normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.flatBlueColor()], forState:.Selected)
+        
+        let tabBarController = self.window?.rootViewController as! UITabBarController
+        
+        for viewController in tabBarController.viewControllers! {
+            let item = viewController.tabBarItem
+            if let image = item.image {
+                item.image = image.imageWithColor(UIColor.whiteColor()).imageWithRenderingMode(.AlwaysOriginal)
+                item.selectedImage = image.imageWithColor(UIColor.flatBlueColor()).imageWithRenderingMode(.AlwaysOriginal)
+            }
+        }
+    }
+    
+    func getInitialData() {
+        let tabBarController = self.window?.rootViewController as! UITabBarController
+        let navigationViewController = tabBarController.viewControllers![0] as! UINavigationController
+        let initialViewController = navigationViewController.viewControllers[0] as! ViewController
+
+        dispatch_async(dispatch_get_main_queue()) {
+            if PFUser.currentUser()?.isAuthenticated() == true {
+                initialViewController.userhabits = Habit.getHabitsForCurrentUser()
+                initialViewController.logs = Log.findLogsForCurrentUser()
+            }
+        }
     }
 
 

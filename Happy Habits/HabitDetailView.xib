@@ -31,11 +31,14 @@
                     <rect key="frame" x="8" y="562" width="82" height="30"/>
                     <animations/>
                     <state key="normal" title="Adopt Habit"/>
+                    <connections>
+                        <action selector="habitButtonTapped:" destination="-1" eventType="touchUpInside" id="Ac7-qf-PEL"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3QL-k4-mJu">
                     <rect key="frame" x="8" y="72" width="584" height="482"/>
                     <animations/>
-                    <color key="backgroundColor" red="1" green="0.16640101509999999" blue="0.39468188360000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iZE-JA-GXP">
                     <rect key="frame" x="8" y="72" width="584" height="482"/>

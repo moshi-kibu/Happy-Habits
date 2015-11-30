@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Parse
+import QuartzCore
 
 class HabitDetailViewController: UIViewController {
 
@@ -16,18 +18,48 @@ class HabitDetailViewController: UIViewController {
     @IBOutlet weak var studyButton: UIButton!
     
     var habit : Habit = Habit()
+    var userHabits : [Habit] = []
+    var user = PFUser.currentUser()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = self.habit.title
         self.setTextView()
+        self.habitButton.layer.cornerRadius = 5
+        self.studyButton.layer.cornerRadius = 5
+        if self.userHabits.contains(self.habit) {
+            self.habitButton.setTitle("Drop Habit", forState: UIControlState.Normal)
+        }
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if self.userHabits.contains(self.habit) {
+            self.habitButton.setTitle("Drop Habit", forState: UIControlState.Normal)
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    @IBAction func habitButtonTapped(sender: AnyObject) {
+
+        if habitButton.titleLabel?.text == "Adopt Habit" {
+            self.userHabits.append(self.habit)
+            self.user!["Habits"] = self.userHabits
+            print(self.user!["Habits"])
+            self.user?.saveInBackground()
+            self.habitButton.setTitle("Drop Habit", forState: UIControlState.Normal)
+        } else {
+            self.userHabits = self.userHabits.filter({$0 != self.habit})
+            self.user!["Habits"] = self.userHabits
+            self.user?.saveInBackground()
+            self.habitButton.setTitle("Adopt Habit", forState: UIControlState.Normal)
+        }
+    }
+    
     
     @IBAction func seeStudyButtonTapped(sender: AnyObject) {
         for view in self.holderView.subviews {
@@ -55,7 +87,7 @@ class HabitDetailViewController: UIViewController {
     
     func setWebView() {
         self.webView.hidden = false
-        let url = NSURL(string: "https://google.com")
+        let url = NSURL(string: self.habit.studyURL)
         let request = NSURLRequest(URL: url!)
         webView.loadRequest(request)
     }

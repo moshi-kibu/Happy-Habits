@@ -14,18 +14,24 @@ class AllHabitsCollectionViewController: UICollectionViewController {
     
     var allHabits : [Habit] = []
     var habitsToDisplay : [Habit] = []
+    var userHabits : [Habit] = []
+    var colorsArray : [UIColor] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dispatch_async(dispatch_get_main_queue()) {
-            self.allHabits = Habit.getAllHabits()
-            self.checkSelectorAndReloadData()
-        }
         
         self.setCollectionViewUI()
         
         // Register cell classes
         self.collectionView!.registerNib(UINib(nibName: "HabitCollectionCell", bundle: nil), forCellWithReuseIdentifier: "HabitCell")
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        dispatch_async(dispatch_get_main_queue()) {
+            self.allHabits = Habit.getAllHabits()
+            self.userHabits = Habit.getHabitsForCurrentUser()
+            self.checkSelectorAndReloadData()
+        }
     }
     
     func setCollectionViewUI() {
@@ -67,7 +73,8 @@ class AllHabitsCollectionViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("HabitCell", forIndexPath: indexPath) as! HabitCollectionViewCell
         cell.setUI(self.habitsToDisplay[indexPath.row])
-    
+        cell.layer.cornerRadius = 5
+        cell.layer.masksToBounds = true
         return cell
     }
     
@@ -75,6 +82,7 @@ class AllHabitsCollectionViewController: UICollectionViewController {
         let habit = self.habitsToDisplay[indexPath.row]
         let detailController = HabitDetailViewController()
         detailController.habit = habit
+        detailController.userHabits = self.userHabits as! [Habit]
         detailController.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(detailController, animated: true)
     }

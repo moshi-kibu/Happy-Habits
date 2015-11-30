@@ -5,6 +5,9 @@ PODS:
   - Bolts/AppLinks (1.5.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.5.0)
+  - ChameleonFramework/Default (2.0.5)
+  - ChameleonFramework/Swift (2.0.5):
+    - ChameleonFramework/Default
   - FBSDKCoreKit (4.8.0):
     - Bolts (~> 1.1)
     - FBSDKCoreKit/arc (= 4.8.0)
@@ -31,6 +34,7 @@ PODS:
     - Parse (~> 1.8)
 
 DEPENDENCIES:
+  - ChameleonFramework/Swift
   - FBSDKCoreKit
   - FBSDKLoginKit
   - Parse
@@ -40,6 +44,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Bolts: 722ab9a4f8b50fc4ed1b9998a5a7a2b3f16d80b4
+  ChameleonFramework: 69b0256ae77de31b89b9c83ef501d154e1e64341
   FBSDKCoreKit: 66a935d17b6e00b6b64e604f2eb9b72c9ab7deb8
   FBSDKLoginKit: d893fcbb98d854496925e9ff73c67b896982d3c4
   Parse: 54a965c8c19a6dde90284ab654dbcc77ef8c001b

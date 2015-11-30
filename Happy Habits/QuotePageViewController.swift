@@ -8,23 +8,34 @@
 
 import UIKit
 
+var allQuotes : [Quote] = []
+
 class QuotePageViewController: UIViewController {
 
     @IBOutlet weak var QuoteLabel: UILabel!
     @IBOutlet weak var quotePageControl: UIPageControl!
-    var quotes : [Quote] = []
-    //    var quotes : [String] = [" \"Rock bottom became the solid foundation on which I rebuilt my life.\" -J.K. Rowling", "\"Experience: That most brital of teachers. But you learn, my God, do you learn.\" -C.S. Lewis"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.quotes = Quote.getAllQuotes()
-        self.quotePageControl.numberOfPages = self.quotes.count
-        self.QuoteLabel.text = self.quotes.first?.quoteAndAuthorString()
+        if allQuotes == [] {
+            dispatch_async(dispatch_get_main_queue()) {
+                allQuotes = Quote.getAllQuotes()
+                self.updateQuotesUI()
+            }
+        } else {
+            self.updateQuotesUI()
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func updateQuotesUI() {
+        self.quotePageControl.numberOfPages = allQuotes.count
+        self.QuoteLabel.text = allQuotes.first?.quoteAndAuthorString()
     }
     
     @IBAction func swipeRight(sender: AnyObject) {
@@ -42,7 +53,7 @@ class QuotePageViewController: UIViewController {
     }
 
     @IBAction func changeScreen(sender: AnyObject) {
-        self.QuoteLabel.text = self.quotes[self.quotePageControl.currentPage].quoteAndAuthorString()
+        self.QuoteLabel.text = allQuotes[self.quotePageControl.currentPage].quoteAndAuthorString()
     }
     
 }

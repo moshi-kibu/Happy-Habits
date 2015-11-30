@@ -5,18 +5,21 @@
 //  Created by Maggy Hillen on 11/17/15.
 //  Copyright © 2015 Maggy Hillen. All rights reserved.
 //
-
+import Parse
 import UIKit
+import QuartzCore
 
 class LogHappinessViewController: UIViewController {
     
     @IBOutlet weak var happyLogLabel: UILabel!
     @IBOutlet weak var happyLogSlider: UISlider!
+    @IBOutlet weak var saveButton: UIButton!
     
     override func viewDidLoad() {
         self.view = NSBundle.mainBundle().loadNibNamed("LogHappiness", owner:self, options:nil)![0] as! UIView
         self.view.backgroundColor = self.view.backgroundColor!.colorWithAlphaComponent(0.5)
         happyLogSlider.continuous = true
+        saveButton.layer.cornerRadius = 5
         // Do any additional setup after loading the view.
     }
 

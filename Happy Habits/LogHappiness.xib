@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="happyLogLabel" destination="BB2-3i-WCw" id="TV8-Hn-NVn"/>
                 <outlet property="happyLogSlider" destination="Xed-tD-HzF" id="d47-01-CvG"/>
+                <outlet property="saveButton" destination="OSb-4o-MLs" id="OYh-9A-6y7"/>
                 <outlet property="view" destination="iN0-l3-epB" id="MmZ-03-Z0s"/>
             </connections>
         </placeholder>
@@ -41,14 +42,6 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSb-4o-MLs">
-                    <rect key="frame" x="283" y="162" width="34" height="30"/>
-                    <animations/>
-                    <state key="normal" title="Save"/>
-                    <connections>
-                        <action selector="saveTapped:" destination="-1" eventType="touchUpInside" id="Vmb-ni-glC"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Hi there! Lets start off by getting an initial read on your happiness level." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyJ-Po-p1Y">
                     <rect key="frame" x="8" y="8" width="584" height="50"/>
                     <animations/>
@@ -58,6 +51,17 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSb-4o-MLs">
+                    <rect key="frame" x="280" y="174" width="40" height="30"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="8XZ-yK-qMI"/>
+                    </constraints>
+                    <state key="normal" title="Save"/>
+                    <connections>
+                        <action selector="saveTapped:" destination="-1" eventType="touchUpInside" id="Vmb-ni-glC"/>
+                    </connections>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -72,7 +76,7 @@
                 <constraint firstItem="slg-Hl-jMw" firstAttribute="centerX" secondItem="BB2-3i-WCw" secondAttribute="centerX" id="aRX-0O-vA3"/>
                 <constraint firstItem="slg-Hl-jMw" firstAttribute="trailing" secondItem="lyJ-Po-p1Y" secondAttribute="trailing" id="dEd-ga-YRH"/>
                 <constraint firstItem="Xed-tD-HzF" firstAttribute="top" secondItem="BB2-3i-WCw" secondAttribute="bottom" constant="1" id="fbd-gC-yrv"/>
-                <constraint firstItem="OSb-4o-MLs" firstAttribute="top" secondItem="Xed-tD-HzF" secondAttribute="bottom" constant="3" id="ir6-X2-6JH"/>
+                <constraint firstItem="OSb-4o-MLs" firstAttribute="top" secondItem="Xed-tD-HzF" secondAttribute="bottom" constant="15" id="ir6-X2-6JH"/>
                 <constraint firstItem="Xed-tD-HzF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="11" id="mHM-4f-ybd"/>
                 <constraint firstAttribute="bottom" secondItem="BB2-3i-WCw" secondAttribute="bottom" constant="84" id="pbg-8n-VCH"/>
                 <constraint firstItem="lyJ-Po-p1Y" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="pdh-7g-07R"/>

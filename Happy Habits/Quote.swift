@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Parse
+
 
 class Quote : PFObject, PFSubclassing  {
     

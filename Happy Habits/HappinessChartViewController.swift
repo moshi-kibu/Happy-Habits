@@ -8,6 +8,7 @@
 
 import UIKit
 import Charts
+import ChameleonFramework
 
 
 public func ==(lhs: NSDate, rhs: NSDate) -> Bool {
@@ -26,10 +27,12 @@ class HappinessChartViewController: UIViewController, ENSideMenuDelegate {
     @IBOutlet weak var lineChartView: LineChartView!
     @IBOutlet weak var timeSelector: UISegmentedControl!
     var logs : [Log] = []
+    var colorsArray = NSArray(ofColorsWithColorScheme:ColorScheme.Analogous, with:UIColor.flatSkyBlueColor(), flatScheme:true) as! [UIColor]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.sideMenuController()?.sideMenu?.delegate = self
+        
         // Do any additional setup after loading the view.
     }
     
@@ -83,6 +86,10 @@ class HappinessChartViewController: UIViewController, ENSideMenuDelegate {
         lineChartView.descriptionText = ""
         lineChartView.data?.setValueTextColor(UIColor.clearColor())
         lineChartView.xAxis.labelPosition = .Bottom
+        lineChartView.backgroundColor = UIColor.whiteColor()
+        lineChartView.gridBackgroundColor = UIColor.whiteColor()
+        lineChartView.rightAxis.labelPosition = .OutsideChart
+        lineChartView.leftAxis.labelTextColor = UIColor.clearColor()
         let legend = lineChartView.legend
         legend.enabled = false
     }
@@ -113,7 +120,12 @@ class HappinessChartViewController: UIViewController, ENSideMenuDelegate {
                     let dataEntry = ChartDataEntry(value: value, xIndex: i)
                     colors.append(selectColor(value))
                     dataEntries.append(dataEntry)
-                    dates.append(String(log["loggedAt"]))
+                    
+                    let formatter = NSDateFormatter()
+                    formatter.dateStyle = NSDateFormatterStyle.ShortStyle
+                    formatter.timeStyle = .NoStyle
+                    let dateString = formatter.stringFromDate(log.loggedAt)
+                    dates.append(dateString)
                 }
                 average = Double(average / Double(logsForDateRange.count))
             }

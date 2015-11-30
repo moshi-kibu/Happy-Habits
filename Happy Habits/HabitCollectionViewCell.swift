@@ -7,24 +7,29 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 class HabitCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var level: UILabel!
+    var colorsArray = NSArray(ofColorsWithColorScheme:ColorScheme.Triadic, with:UIColor.flatMintColor(), flatScheme:true) as! [UIColor]
     
     func setUI(habit: Habit) {
+        self.title.adjustsFontSizeToFitWidth = true
+        self.title.minimumScaleFactor = 0.10
+        
         self.title.text = habit.title
         self.level.text = habit.level
         var color = UIColor.clearColor()
         switch habit.level {
         case "Simple":
-            color = UIColor.yellowColor()
+            color = colorsArray[1]
             break
         case "Moderate":
-            color = UIColor.greenColor()
+            color = colorsArray[2]
             break
         case "Challenging":
-            color = UIColor.purpleColor()
+            color = colorsArray[3]
             break
         default:
             break

@@ -18,10 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Happy" translatesAutoresizingMaskIntoConstraints="NO" id="cQQ-fp-Wcy">
-                                <rect key="frame" x="0.0" y="44" width="600" height="507"/>
-                                <animations/>
-                            </imageView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D41-AN-73Q">
                                 <rect key="frame" x="20" y="71" width="560" height="195"/>
                                 <animations/>
@@ -30,7 +26,7 @@
                                     <segue destination="aop-a2-Q7p" kind="embed" id="5zc-wZ-vaT"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uix-gD-eb0">
+                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="uix-gD-eb0">
                                 <rect key="frame" x="20" y="274" width="560" height="269"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -44,16 +40,12 @@
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="D41-AN-73Q" secondAttribute="bottom" constant="285" id="22I-Ix-BBR"/>
                             <constraint firstItem="uix-gD-eb0" firstAttribute="top" secondItem="D41-AN-73Q" secondAttribute="bottom" constant="8" id="3mB-Kk-kcj"/>
-                            <constraint firstAttribute="trailing" secondItem="cQQ-fp-Wcy" secondAttribute="trailing" id="6Xm-yg-rrP"/>
                             <constraint firstItem="D41-AN-73Q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7ql-44-VvU"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cQQ-fp-Wcy" secondAttribute="bottom" id="BTd-28-I0d"/>
                             <constraint firstItem="uix-gD-eb0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="DRf-pl-vQv"/>
                             <constraint firstItem="D41-AN-73Q" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="F4C-Oy-X6e"/>
                             <constraint firstItem="D41-AN-73Q" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="7" id="LQj-K9-aeG"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uix-gD-eb0" secondAttribute="bottom" constant="8" id="LrS-9G-1pG"/>
-                            <constraint firstItem="cQQ-fp-Wcy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dHb-40-iMy"/>
                             <constraint firstItem="uix-gD-eb0" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="doR-k9-kpU"/>
-                            <constraint firstItem="cQQ-fp-Wcy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="ebI-jl-VWx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3Z7-sd-QM2">
@@ -111,7 +103,7 @@
                             </view>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="rya-eU-sej" secondAttribute="trailing" constant="8" id="97b-Df-gQ2"/>
                             <constraint firstItem="rya-eU-sej" firstAttribute="leading" secondItem="jCO-Pb-niC" secondAttribute="leadingMargin" constant="8" id="SD7-o2-kdn"/>
@@ -183,7 +175,6 @@
                             <outlet property="delegate" destination="FJM-md-rEo" id="1yY-L2-z8g"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="fYo-a0-QS6"/>
                     <navigationItem key="navigationItem" id="zqA-gj-Hg3">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="YFL-r0-xKw">
@@ -250,11 +241,11 @@
             </objects>
             <point key="canvasLocation" x="344" y="-181.5"/>
         </scene>
-        <!--Slide Menu View Controller-->
+        <!--Your Habits-->
         <scene sceneID="RVv-Lb-dP3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xbd-81-7qd" customClass="SlideMenuViewController" customModule="Happy_Habits" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="more" id="Afy-6d-nV2"/>
+                    <tabBarItem key="tabBarItem" title="Your Habits" image="Your Habits" selectedImage="Your Habits" id="Afy-6d-nV2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sKA-WH-gbh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -270,11 +261,11 @@
             </objects>
             <point key="canvasLocation" x="1217" y="843"/>
         </scene>
-        <!--Slide Menu View Controller-->
+        <!--Track Happiness-->
         <scene sceneID="hrI-5d-HoQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mPs-CQ-z5G" customClass="SlideMenuViewController" customModule="Happy_Habits" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="history" id="4Cm-dF-xIC"/>
+                    <tabBarItem key="tabBarItem" title="Track Happiness" image="Chart Icon" selectedImage="Chart Icon" id="4Cm-dF-xIC"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XTO-gu-zo2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -290,11 +281,11 @@
             </objects>
             <point key="canvasLocation" x="2829" y="271"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Happy Habits-->
         <scene sceneID="VTO-Ku-Qhg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Wl-72-PHl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="ROm-Fg-eZT"/>
+                    <tabBarItem key="tabBarItem" title="Happy Habits" image="Happy Habits" selectedImage="Happy Habits" id="ROm-Fg-eZT"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mvv-Yd-M3U">
@@ -313,6 +304,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Happy" width="1650" height="1100"/>
+        <image name="Chart Icon" width="30" height="30"/>
+        <image name="Happy Habits" width="30" height="30"/>
+        <image name="Your Habits" width="30" height="30"/>
     </resources>
 </document>

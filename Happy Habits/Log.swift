@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Parse
+
 
 class Log: PFObject, PFSubclassing  {
     
@@ -50,6 +52,14 @@ class Log: PFObject, PFSubclassing  {
             
         }
         return logs
+    }
+    
+    func loggedToday() -> Bool {
+        let createdDate = (self.loggedAt) as NSDate
+        let today = NSDate()
+        let cal = NSCalendar.currentCalendar()
+        let components = cal.components([.Day], fromDate: createdDate, toDate: today, options: [])
+        return (components.day < 1)
     }
     
 }
