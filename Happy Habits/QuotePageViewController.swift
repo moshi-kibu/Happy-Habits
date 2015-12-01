@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import Parse
 
 class QuotePageViewController: UIViewController {
 
+    @IBOutlet weak var imageForQuote: UIImageView!
     @IBOutlet weak var QuoteLabel: UILabel!
     @IBOutlet weak var quotePageControl: UIPageControl!
     
@@ -27,8 +29,12 @@ class QuotePageViewController: UIViewController {
     }
     
     func updateQuotesUI() {
+        self.view.layer.cornerRadius = 10
+        self.imageForQuote.layer.cornerRadius = 10
+        self.imageForQuote.clipsToBounds = true
         self.quotePageControl.numberOfPages = allQuotes.count
         self.QuoteLabel.text = allQuotes.first?.quoteAndAuthorString()
+        self.imageForQuote.image = allQuotes.first?.getImageForQuote()
         self.QuoteLabel.font = loraFont.fontWithSize(16)
     }
     
@@ -47,7 +53,8 @@ class QuotePageViewController: UIViewController {
     }
 
     @IBAction func changeScreen(sender: AnyObject) {
-        self.QuoteLabel.text = allQuotes[self.quotePageControl.currentPage].quoteAndAuthorString()
+        let thisQuote = allQuotes[self.quotePageControl.currentPage]
+        self.QuoteLabel.text = thisQuote.quoteAndAuthorString()
+        self.imageForQuote.image = thisQuote.getImageForQuote()
     }
-    
 }

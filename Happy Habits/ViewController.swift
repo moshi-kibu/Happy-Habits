@@ -108,7 +108,6 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
         let quotesViewController = QuotePageViewController()
         self.addChildViewController(quotesViewController)
         quotesViewController.view.frame = CGRectMake(0,0, self.topContainerView.frame.size.width, self.topContainerView.frame.size.height)
-        quotesViewController.view.layer.cornerRadius = 10
         self.topContainerView.addSubview(quotesViewController.view)
         quotesViewController.didMoveToParentViewController(self)
     }

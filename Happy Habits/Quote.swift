@@ -61,4 +61,15 @@ class Quote : PFObject, PFSubclassing  {
         return string
     }
     
+    func getImageForQuote() -> UIImage {
+        var quoteImage = UIImage()
+        do {
+           let data = try self.imageFile.getData()
+           quoteImage = UIImage(data: data)!
+        } catch {
+           print("Error in getImageForQuote")
+        }
+        return quoteImage
+    }
+    
 }

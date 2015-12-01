@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuotePageViewController" customModule="Happy_Habits" customModuleProvider="target">
             <connections>
                 <outlet property="QuoteLabel" destination="81E-fg-MEN" id="Ica-va-qHL"/>
+                <outlet property="imageForQuote" destination="tHS-XH-YmT" id="pHQ-Z9-QPb"/>
                 <outlet property="quotePageControl" destination="bTd-jP-xog" id="pGY-6f-Y6O"/>
                 <outlet property="view" destination="iN0-l3-epB" id="s2U-Ft-Pme"/>
             </connections>
@@ -17,6 +18,10 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="212"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tHS-XH-YmT">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="212"/>
+                    <animations/>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81E-fg-MEN">
                     <rect key="frame" x="8" y="8" width="584" height="159"/>
                     <animations/>
@@ -41,7 +46,11 @@
             <color key="backgroundColor" red="0.28627450980000002" green="0.0" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
             <gestureRecognizers/>
             <constraints>
+                <constraint firstItem="tHS-XH-YmT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4nQ-vT-z5N"/>
+                <constraint firstItem="tHS-XH-YmT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="749-K8-XbR"/>
+                <constraint firstAttribute="bottom" secondItem="tHS-XH-YmT" secondAttribute="bottom" id="9a9-JA-k2X"/>
                 <constraint firstAttribute="bottom" secondItem="bTd-jP-xog" secondAttribute="bottom" id="Z2g-4r-NuE"/>
+                <constraint firstAttribute="trailing" secondItem="tHS-XH-YmT" secondAttribute="trailing" id="hyg-db-ksh"/>
                 <constraint firstItem="bTd-jP-xog" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="oyq-8B-jMO"/>
                 <constraint firstItem="81E-fg-MEN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="pK4-Ja-wQ4"/>
                 <constraint firstItem="81E-fg-MEN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="pag-Dd-tO9"/>
