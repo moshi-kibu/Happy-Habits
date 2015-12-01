@@ -17,21 +17,21 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="212"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81E-fg-MEN">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81E-fg-MEN">
                     <rect key="frame" x="8" y="8" width="584" height="159"/>
                     <animations/>
                     <gestureRecognizers/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="159" id="IkU-BD-gGZ"/>
-                        <constraint firstAttribute="width" constant="584" id="f1b-gX-GKZ"/>
-                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="bTd-jP-xog">
+                <pageControl opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="bTd-jP-xog">
                     <rect key="frame" x="281" y="175" width="39" height="37"/>
                     <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="39" id="Axh-3z-2wI"/>
+                        <constraint firstAttribute="height" constant="37" id="eXo-Vj-TTz"/>
+                    </constraints>
                     <connections>
                         <action selector="changeScreen:" destination="-1" eventType="valueChanged" id="PYD-9F-dm4"/>
                     </connections>
@@ -41,12 +41,12 @@
             <color key="backgroundColor" red="0.28627450980000002" green="0.0" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="bTd-jP-xog" secondAttribute="bottom" id="1Tg-Yp-kaf"/>
-                <constraint firstItem="bTd-jP-xog" firstAttribute="top" secondItem="81E-fg-MEN" secondAttribute="bottom" constant="8" id="CfC-eG-AzQ"/>
-                <constraint firstItem="81E-fg-MEN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="N0c-YN-ugV"/>
-                <constraint firstItem="81E-fg-MEN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="a7i-BT-Lz8"/>
-                <constraint firstAttribute="trailing" secondItem="81E-fg-MEN" secondAttribute="trailing" constant="8" id="bto-rX-Cg8"/>
-                <constraint firstItem="bTd-jP-xog" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="cGf-sz-02X"/>
+                <constraint firstAttribute="bottom" secondItem="bTd-jP-xog" secondAttribute="bottom" id="Z2g-4r-NuE"/>
+                <constraint firstItem="bTd-jP-xog" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="oyq-8B-jMO"/>
+                <constraint firstItem="81E-fg-MEN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="pK4-Ja-wQ4"/>
+                <constraint firstItem="81E-fg-MEN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="pag-Dd-tO9"/>
+                <constraint firstAttribute="trailing" secondItem="81E-fg-MEN" secondAttribute="trailing" constant="8" id="xBI-DI-ioS"/>
+                <constraint firstItem="bTd-jP-xog" firstAttribute="top" secondItem="81E-fg-MEN" secondAttribute="bottom" constant="8" id="zFF-Qv-EKN"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

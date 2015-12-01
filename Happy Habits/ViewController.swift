@@ -14,28 +14,34 @@ import QuartzCore
 
 class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, ENSideMenuDelegate {
     
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var topContainerView: UIView!
     @IBOutlet weak var bottomContainerView: UIView!
     var colorsArray = NSArray(ofColorsWithColorScheme:ColorScheme.Analogous, with:UIColor.flatSkyBlueColor(), flatScheme:true) as! [UIColor]
     var user = PFUser.currentUser()
-    var logs : [Log] = []
-    var quotes : [Quote] = []
-    var userhabits : [Habit] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         user = PFUser.currentUser()
         self.sideMenuController()?.sideMenu?.delegate = self
-        if self.logs == [] && PFUser.currentUser()?.isAuthenticated() == true {
-            self.logs = Log.findLogsForCurrentUser()
-        }
-        if self.userhabits == [] && PFUser.currentUser()?.isAuthenticated() == true {
-            self.userhabits = Habit.getHabitsForCurrentUser()
-        }
+        
+//        if let image = self.menuButton.image {
+//            self.menuButton.image = image.imageWithColor(UIColor.whiteColor()).imageWithRenderingMode(.AlwaysOriginal)
+//        }
+
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+        if userLogs == [] && PFUser.currentUser()?.isAuthenticated() == true {
+            userLogs = Log.findLogsForCurrentUser()
+        }
+        if userHabits == [] && PFUser.currentUser()?.isAuthenticated() == true {
+            userHabits = Habit.getHabitsForCurrentUser()
+        }
+        
         if (PFUser.currentUser() == nil) {
             self.showLoginView()
         } else {
@@ -74,8 +80,8 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     }
     
     func showHappyLogOrHappyQuotes() {
-        if self.logs.last != nil {
-            if self.logs.last?.loggedToday() == false {
+        if userLogs.last != nil {
+            if userLogs.last?.loggedToday() == false {
                 self.showHappyLog()
             } else {
                 self.showHappyQuotes()
@@ -116,7 +122,6 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     
     func showHabitsTable() {
         let habitsViewController = UserHabitsViewController(nibName: "UserHabitsTableView", bundle: nil)
-        habitsViewController.userHabits = Habit.getHabitsForCurrentUser()
         self.addChildViewController(habitsViewController)
         habitsViewController.view.frame = CGRectMake(0, 0, self.bottomContainerView.frame.size.width, self.bottomContainerView.frame.size.height);
         self.bottomContainerView.layer.cornerRadius = 10

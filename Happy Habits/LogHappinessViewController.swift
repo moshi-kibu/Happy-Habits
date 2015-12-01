@@ -36,10 +36,9 @@ class LogHappinessViewController: UIViewController {
     
     @IBAction func saveTapped(sender: AnyObject) {
         let user = PFUser.currentUser()!
-        var userHappinessLog = user["HappinessLog"] as! [Log]
         let currentHappiness = Int(self.happyLogSlider.value)
-        userHappinessLog.append(Log(happinessLevel: currentHappiness))
-        user["HappinessLog"] = userHappinessLog
+        userLogs.append(Log(happinessLevel: currentHappiness))
+        user["HappinessLog"] = userLogs
         user.saveEventually()
         (self.parentViewController as! ViewController).removeHappyLog(self)
     }

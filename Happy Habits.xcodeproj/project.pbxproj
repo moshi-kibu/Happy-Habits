@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		961A97AA1C0D33EA00A45671 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A97A91C0D33EA00A45671 /* Extensions.swift */; };
 		961DE5D91C093A1B00306B78 /* UserHabitsTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 961DE5D81C093A1B00306B78 /* UserHabitsTableView.xib */; };
 		961DE5DB1C093D3500306B78 /* UserHabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961DE5DA1C093D3500306B78 /* UserHabitsViewController.swift */; };
 		9627EC2F1C06352C00A17318 /* UserHabitsTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9627EC2E1C06352C00A17318 /* UserHabitsTableHeader.xib */; };
@@ -35,6 +36,8 @@
 		967173041BFBC1CF000DCC9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 967173021BFBC1CF000DCC9E /* LaunchScreen.storyboard */; };
 		9671730F1BFBC1CF000DCC9E /* Happy_HabitsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9671730E1BFBC1CF000DCC9E /* Happy_HabitsTests.swift */; };
 		9671731A1BFBC1CF000DCC9E /* Happy_HabitsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967173191BFBC1CF000DCC9E /* Happy_HabitsUITests.swift */; };
+		967397EF1C0D048000D3A1EA /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967397EE1C0D048000D3A1EA /* TabBarViewController.swift */; };
+		967397F21C0D0E0C00D3A1EA /* Lora-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 960BB4741C0C0ECA002F959A /* Lora-Regular.ttf */; };
 		96B620F01C08D8180040365F /* QuotePageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96B620EF1C08D8180040365F /* QuotePageView.xib */; };
 		96B620F41C08DA8B0040365F /* QuotePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B620F31C08DA8B0040365F /* QuotePageViewController.swift */; };
 		96B620F61C08E3670040365F /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B620F51C08E3670040365F /* Quote.swift */; };
@@ -106,6 +109,7 @@
 		38E777D23C3CEB5EE47EAD87 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DC285474E6FC588B5DA8CDB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		960BB4741C0C0ECA002F959A /* Lora-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-Regular.ttf"; sourceTree = "<group>"; };
+		961A97A91C0D33EA00A45671 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		961DE5D81C093A1B00306B78 /* UserHabitsTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserHabitsTableView.xib; sourceTree = "<group>"; };
 		961DE5DA1C093D3500306B78 /* UserHabitsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHabitsViewController.swift; sourceTree = "<group>"; };
 		9627EC2E1C06352C00A17318 /* UserHabitsTableHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserHabitsTableHeader.xib; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 		967173151BFBC1CF000DCC9E /* Happy HabitsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Happy HabitsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		967173191BFBC1CF000DCC9E /* Happy_HabitsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Happy_HabitsUITests.swift; sourceTree = "<group>"; };
 		9671731B1BFBC1CF000DCC9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		967397EE1C0D048000D3A1EA /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		96B620EF1C08D8180040365F /* QuotePageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuotePageView.xib; sourceTree = "<group>"; };
 		96B620F31C08DA8B0040365F /* QuotePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotePageViewController.swift; sourceTree = "<group>"; };
 		96B620F51C08E3670040365F /* Quote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
@@ -316,6 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				9627EC3D1C06683800A17318 /* HabitDetailViewController.swift */,
+				967397EE1C0D048000D3A1EA /* TabBarViewController.swift */,
 				966D31EE1C090ED700F11B3F /* MenuViewControllers */,
 				9627EC361C063A8E00A17318 /* Tabbar ViewControllers */,
 				9627EC351C063A5B00A17318 /* Container ViewControllers */,
@@ -349,6 +355,7 @@
 				965440741C03C722009BE9AD /* Charts.xcodeproj */,
 				967173001BFBC1CF000DCC9E /* Assets.xcassets */,
 				967173051BFBC1CF000DCC9E /* Info.plist */,
+				961A97A91C0D33EA00A45671 /* Extensions.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -512,6 +519,7 @@
 				9633CA741BFC1739003E915A /* LogHappiness.xib in Resources */,
 				967172FF1BFBC1CF000DCC9E /* Main.storyboard in Resources */,
 				961DE5D91C093A1B00306B78 /* UserHabitsTableView.xib in Resources */,
+				967397F21C0D0E0C00D3A1EA /* Lora-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,10 +600,12 @@
 				96B620F41C08DA8B0040365F /* QuotePageViewController.swift in Sources */,
 				96CA02551BFBD01000D3D098 /* Habit.swift in Sources */,
 				9627EC341C063A2F00A17318 /* AllHabitsCollectionViewController.swift in Sources */,
+				967397EF1C0D048000D3A1EA /* TabBarViewController.swift in Sources */,
 				966D31F51C090F0500F11B3F /* ENSideMenuNavigationController.swift in Sources */,
 				967172FC1BFBC1CF000DCC9E /* ViewController.swift in Sources */,
 				966D31F41C090F0500F11B3F /* ENSideMenu.swift in Sources */,
 				965440851C03C7C7009BE9AD /* HappinessChartViewController.swift in Sources */,
+				961A97AA1C0D33EA00A45671 /* Extensions.swift in Sources */,
 				9627EC3E1C06683800A17318 /* HabitDetailViewController.swift in Sources */,
 				96EB31011BFE959D008811C7 /* Log.swift in Sources */,
 				961DE5DB1C093D3500306B78 /* UserHabitsViewController.swift in Sources */,

@@ -18,8 +18,6 @@ class HabitDetailViewController: UIViewController {
     @IBOutlet weak var studyButton: UIButton!
     
     var habit : Habit = Habit()
-    var userHabits : [Habit] = []
-    var user = PFUser.currentUser()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,14 +25,14 @@ class HabitDetailViewController: UIViewController {
         self.setTextView()
         self.habitButton.layer.cornerRadius = 5
         self.studyButton.layer.cornerRadius = 5
-        if self.userHabits.contains(self.habit) {
+        if userHabits.contains(self.habit) {
             self.habitButton.setTitle("Drop Habit", forState: UIControlState.Normal)
         }
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(animated: Bool) {
-        if self.userHabits.contains(self.habit) {
+        if userHabits.contains(self.habit) {
             self.habitButton.setTitle("Drop Habit", forState: UIControlState.Normal)
         }
     }
@@ -45,17 +43,15 @@ class HabitDetailViewController: UIViewController {
     }
 
     @IBAction func habitButtonTapped(sender: AnyObject) {
-
         if habitButton.titleLabel?.text == "Adopt Habit" {
-            self.userHabits.append(self.habit)
-            self.user!["Habits"] = self.userHabits
-            print(self.user!["Habits"])
-            self.user?.saveInBackground()
+            userHabits.append(self.habit)
+            PFUser.currentUser()!["Habits"] = userHabits
+            PFUser.currentUser()!.saveInBackground()
             self.habitButton.setTitle("Drop Habit", forState: UIControlState.Normal)
         } else {
-            self.userHabits = self.userHabits.filter({$0 != self.habit})
-            self.user!["Habits"] = self.userHabits
-            self.user?.saveInBackground()
+            userHabits = userHabits.filter({$0 != self.habit})
+            PFUser.currentUser()!["Habits"] = userHabits
+            PFUser.currentUser()!.saveInBackground()
             self.habitButton.setTitle("Adopt Habit", forState: UIControlState.Normal)
         }
     }

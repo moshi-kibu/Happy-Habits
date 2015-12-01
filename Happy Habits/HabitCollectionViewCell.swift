@@ -15,11 +15,11 @@ class HabitCollectionViewCell: UICollectionViewCell {
     var colorsArray = NSArray(ofColorsWithColorScheme:ColorScheme.Triadic, with:UIColor.flatMintColor(), flatScheme:true) as! [UIColor]
     
     func setUI(habit: Habit) {
-        self.title.adjustsFontSizeToFitWidth = true
-        self.title.minimumScaleFactor = 0.10
         
         self.title.text = habit.title
+        self.title.font = loraFont.fontWithSize(16)
         self.level.text = habit.level
+        self.level.font = loraFont.fontWithSize(12)
         var color = UIColor.clearColor()
         switch habit.level {
         case "Simple":

@@ -9,6 +9,7 @@
 import UIKit
 
 class UserHabitsTableHeader: UITableViewCell {
+    @IBOutlet weak var label: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

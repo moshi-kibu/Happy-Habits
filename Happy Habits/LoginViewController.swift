@@ -15,6 +15,8 @@ class LoginViewController : PFLogInViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
         logInView?.autoresizesSubviews
         
         self.fields = [.UsernameAndPassword, .LogInButton, .SignUpButton, .PasswordForgotten, .Facebook, .Twitter]
@@ -28,9 +30,9 @@ class LoginViewController : PFLogInViewController {
         // remove the parse Logo
         let logo = UILabel()
         logo.text = "Happy Habits"
-        logo.textColor = UIColor.whiteColor()
+        logo.textColor = UIColor.flatSkyBlueColor()
         logo.font = UIFont(name: "Norican-Regular", size: 70)
-        logo.shadowColor = UIColor.lightGrayColor()
+        logo.shadowColor = UIColor.whiteColor()
         logo.shadowOffset = CGSizeMake(2, 2)
         logo.adjustsFontSizeToFitWidth = true
         logInView?.logo = logo
@@ -38,11 +40,11 @@ class LoginViewController : PFLogInViewController {
         
         // set forgotten password button to white
         logInView?.passwordForgottenButton?.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        logInView?.passwordForgottenButton?.backgroundColor = UIColor.clearColor()
         
         // make the background of the login button pop more
         logInView?.logInButton?.setBackgroundImage(nil, forState: .Normal)
-        logInView?.logInButton?.backgroundColor = UIColor(red: 52/255, green: 191/255, blue: 73/255, alpha: 1)
-        
+        logInView?.logInButton?.backgroundColor = UIColor.flatGreenColor()
         // make the buttons classier
         customizeButton(logInView?.facebookButton!)
         customizeButton(logInView?.twitterButton!)

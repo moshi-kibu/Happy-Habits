@@ -13,26 +13,12 @@ import ParseTwitterUtils
 import QuartzCore
 import ChameleonFramework
 
-extension UIImage {
-    func imageWithColor(tintColor: UIColor) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
-        
-        let context = UIGraphicsGetCurrentContext()! as CGContextRef
-        CGContextTranslateCTM(context, 0, self.size.height)
-        CGContextScaleCTM(context, 1.0, -1.0);
-        CGContextSetBlendMode(context, CGBlendMode.Normal)
-        
-        let rect = CGRectMake(0, 0, self.size.width, self.size.height) as CGRect
-        CGContextClipToMask(context, rect, self.CGImage)
-        tintColor.setFill()
-        CGContextFillRect(context, rect)
-        
-        let newImage = UIGraphicsGetImageFromCurrentImageContext() as UIImage
-        UIGraphicsEndImageContext()
-        
-        return newImage
-    }
-}
+var userHabits : [Habit] = []
+var allHabits : [Habit] = []
+var allQuotes : [Quote] = []
+var userLogs : [Log] = []
+var loraFont : UIFont = UIFont()
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -40,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        Chameleon.setGlobalThemeUsingPrimaryColor(UIColor.flatSkyBlueColor(), withContentStyle: UIContentStyle.Contrast)
+        
         Parse.enableLocalDatastore()
         Habit.registerSubclass()
         Log.registerSubclass()
@@ -56,13 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
-        
+        loraFont = UIFont(name: "Lora-Regular", size: 15)!
         self.getInitialData()
         
-        Chameleon.setGlobalThemeUsingPrimaryColor(UIColor.flatSkyBlueColor(), withContentStyle: UIContentStyle.Contrast)
-        self.setTabBarAppearance()
-
-
+        
         return true
     }
     
@@ -92,31 +77,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func setTabBarAppearance() {
-        UITabBar.appearance().barTintColor = UIColor.flatSkyBlueColor()
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState:.Normal)
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.flatBlueColor()], forState:.Selected)
-        
-        let tabBarController = self.window?.rootViewController as! UITabBarController
-        
-        for viewController in tabBarController.viewControllers! {
-            let item = viewController.tabBarItem
-            if let image = item.image {
-                item.image = image.imageWithColor(UIColor.whiteColor()).imageWithRenderingMode(.AlwaysOriginal)
-                item.selectedImage = image.imageWithColor(UIColor.flatBlueColor()).imageWithRenderingMode(.AlwaysOriginal)
-            }
-        }
-    }
+
     
     func getInitialData() {
-        let tabBarController = self.window?.rootViewController as! UITabBarController
-        let navigationViewController = tabBarController.viewControllers![0] as! UINavigationController
-        let initialViewController = navigationViewController.viewControllers[0] as! ViewController
-
         dispatch_async(dispatch_get_main_queue()) {
+            allHabits = Habit.getAllHabits()
+            allQuotes = Quote.getAllQuotes()
             if PFUser.currentUser()?.isAuthenticated() == true {
-                initialViewController.userhabits = Habit.getHabitsForCurrentUser()
-                initialViewController.logs = Log.findLogsForCurrentUser()
+                userHabits = Habit.getHabitsForCurrentUser()
+                userLogs = Log.findLogsForCurrentUser()
             }
         }
     }

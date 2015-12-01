@@ -24,10 +24,11 @@ class SignUpViewController : PFSignUpViewController {
         // remove the parse Logo
         let logo = UILabel()
         logo.text = "Happy Habits"
-        logo.textColor = UIColor.whiteColor()
+        logo.textColor = UIColor.flatSkyBlueColor()
         logo.font = UIFont(name: "Norican-Regular", size: 70)
-        logo.shadowColor = UIColor.lightGrayColor()
+        logo.shadowColor = UIColor.whiteColor()
         logo.shadowOffset = CGSizeMake(2, 2)
+        logo.adjustsFontSizeToFitWidth = true
         signUpView?.logo = logo
         
         signUpView?.signUpButton?.setBackgroundImage(nil, forState: .Normal)
@@ -35,6 +36,7 @@ class SignUpViewController : PFSignUpViewController {
         
         signUpView?.dismissButton!.setTitle("Nevermind", forState: .Normal)
         signUpView?.dismissButton!.setImage(nil, forState: .Normal)
+        signUpView?.dismissButton!.backgroundColor = UIColor.clearColor()
     }
     
     override func viewDidLayoutSubviews() {

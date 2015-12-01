@@ -10,18 +10,6 @@ import UIKit
 import Charts
 import ChameleonFramework
 
-
-public func ==(lhs: NSDate, rhs: NSDate) -> Bool {
-    return lhs === rhs || lhs.compare(rhs) == .OrderedSame
-}
-
-public func <(lhs: NSDate, rhs: NSDate) -> Bool {
-    return lhs.compare(rhs) == .OrderedAscending
-}
-
-extension NSDate: Comparable { }
-
-
 class HappinessChartViewController: UIViewController, ENSideMenuDelegate {
     
     @IBOutlet weak var lineChartView: LineChartView!
@@ -32,7 +20,8 @@ class HappinessChartViewController: UIViewController, ENSideMenuDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.sideMenuController()?.sideMenu?.delegate = self
-        
+        self.timeSelector.setTitleTextAttributes([NSFontAttributeName:loraFont.fontWithSize(12)], forState: .Normal)
+        self.timeSelector.setTitleTextAttributes([NSFontAttributeName:loraFont.fontWithSize(12)], forState: .Selected)
         // Do any additional setup after loading the view.
     }
     

@@ -12,7 +12,7 @@ import Parse
 class MenuTableViewController: UITableViewController {
     
     var selectedMenuItem : Int = 0
-    let menuOptionTitles = ["Account", "Sign out"]
+    let menuOptionTitles = ["Sign out"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class MenuTableViewController: UITableViewController {
     func configureView() {
         tableView.contentInset = UIEdgeInsetsMake(64.0, 0, 0, 0) //
         tableView.separatorStyle = .None
-        tableView.backgroundColor = UIColor.blackColor()
+        tableView.backgroundColor = UIColor.flatSkyBlueColor().colorWithAlphaComponent(0.60)
         tableView.scrollsToTop = false
     }
     
@@ -47,11 +47,9 @@ class MenuTableViewController: UITableViewController {
         var cell = tableView.dequeueReusableCellWithIdentifier("cell")
         if (cell == nil) {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
-            cell!.backgroundColor = UIColor.blackColor()
+            cell!.backgroundColor = UIColor.clearColor()
             cell!.textLabel?.textColor = UIColor.whiteColor()
-            //            let selectedBackgroundView = UIView(frame: CGRectMake(0, 0, cell!.frame.size.width, cell!.frame.size.height))
-            //            selectedBackgroundView.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.2)
-            //            cell!.selectedBackgroundView = selectedBackgroundView
+            cell!.textLabel?.font = loraFont.fontWithSize(16)
         }
         cell!.textLabel?.text = self.menuOptionTitles[indexPath.row]
         return cell!
@@ -64,9 +62,6 @@ class MenuTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         switch self.menuOptionTitles[indexPath.row] {
-        case "Account":
-            //do nothing for now
-            break
             
         case "Sign out":
             self.logOutUser()

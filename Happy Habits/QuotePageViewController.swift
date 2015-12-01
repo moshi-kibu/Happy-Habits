@@ -8,8 +8,6 @@
 
 import UIKit
 
-var allQuotes : [Quote] = []
-
 class QuotePageViewController: UIViewController {
 
     @IBOutlet weak var QuoteLabel: UILabel!
@@ -18,14 +16,9 @@ class QuotePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if allQuotes == [] {
-            dispatch_async(dispatch_get_main_queue()) {
-                allQuotes = Quote.getAllQuotes()
-                self.updateQuotesUI()
-            }
-        } else {
-            self.updateQuotesUI()
+            allQuotes = Quote.getAllQuotes()
         }
-        
+        self.updateQuotesUI()
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,6 +29,7 @@ class QuotePageViewController: UIViewController {
     func updateQuotesUI() {
         self.quotePageControl.numberOfPages = allQuotes.count
         self.QuoteLabel.text = allQuotes.first?.quoteAndAuthorString()
+        self.QuoteLabel.font = loraFont.fontWithSize(16)
     }
     
     @IBAction func swipeRight(sender: AnyObject) {

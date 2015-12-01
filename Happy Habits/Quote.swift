@@ -14,11 +14,13 @@ class Quote : PFObject, PFSubclassing  {
     
     @NSManaged var quoteText : String
     @NSManaged var authorName : String
+    @NSManaged var imageFile : PFFile
     
-    init(quoteText : String, authorName: String) {
+    init(quoteText : String, authorName: String, imageFile: PFFile) {
         super.init()
         self.quoteText = quoteText
         self.authorName = authorName
+        self.imageFile = imageFile
     }
     
     override init() {

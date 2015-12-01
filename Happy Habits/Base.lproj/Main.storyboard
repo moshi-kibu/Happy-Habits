@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D41-AN-73Q">
+                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D41-AN-73Q">
                                 <rect key="frame" x="20" y="71" width="560" height="195"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -49,7 +49,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3Z7-sd-QM2">
-                        <barButtonItem key="rightBarButtonItem" title="Menu" id="DRQ-PR-Xmd">
+                        <barButtonItem key="rightBarButtonItem" image="Menu" id="DRQ-PR-Xmd">
                             <connections>
                                 <action selector="menuButtonTapped:" destination="BYZ-38-t0r" id="7YM-9H-DAK"/>
                             </connections>
@@ -58,6 +58,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="bottomContainerView" destination="uix-gD-eb0" id="O3j-S5-Eib"/>
+                        <outlet property="menuButton" destination="DRQ-PR-Xmd" id="OVr-7Y-V9E"/>
                         <outlet property="topContainerView" destination="D41-AN-73Q" id="QGc-8O-oDe"/>
                     </connections>
                 </viewController>
@@ -126,7 +127,7 @@
                                 <action selector="timeSelectorChanged:" destination="gWW-ku-nAq" eventType="valueChanged" id="TC5-Jg-9bf"/>
                             </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" title="Menu" id="cF8-9x-duh">
+                        <barButtonItem key="rightBarButtonItem" image="Menu" id="cF8-9x-duh">
                             <connections>
                                 <action selector="menuButtonTapped:" destination="gWW-ku-nAq" id="JZz-x4-rYz"/>
                             </connections>
@@ -147,9 +148,10 @@
             <objects>
                 <collectionViewController id="FJM-md-rEo" customClass="AllHabitsCollectionViewController" customModule="Happy_Habits" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="eaw-Wa-c9x">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RiO-kN-hW4">
                             <size key="itemSize" width="150" height="150"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -158,7 +160,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HabitCell" id="6KJ-op-E0b" customClass="HabitCollectionViewCell" customModule="Happy_Habits" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="100" height="100"/>
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -175,6 +177,7 @@
                             <outlet property="delegate" destination="FJM-md-rEo" id="1yY-L2-z8g"/>
                         </connections>
                     </collectionView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="zqA-gj-Hg3">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="YFL-r0-xKw">
@@ -191,7 +194,11 @@
                                 <action selector="selectedLevelChanged:" destination="FJM-md-rEo" eventType="valueChanged" id="gpP-6Y-tVu"/>
                             </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" title="Menu" id="rUX-FF-LCM"/>
+                        <barButtonItem key="rightBarButtonItem" image="Menu" id="rUX-FF-LCM">
+                            <connections>
+                                <action selector="menuButtonTapped:" destination="FJM-md-rEo" id="JLw-9m-Iih"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -202,10 +209,10 @@
             </objects>
             <point key="canvasLocation" x="5124" y="344"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="x2D-pk-Hu6">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="hY8-Mm-DqV" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="hY8-Mm-DqV" customClass="TabBarViewController" customModule="Happy_Habits" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="xuG-Xt-sr7">
                         <autoresizingMask key="autoresizingMask"/>
@@ -284,7 +291,7 @@
         <!--Happy Habits-->
         <scene sceneID="VTO-Ku-Qhg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Wl-72-PHl" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Wl-72-PHl" customClass="SlideMenuViewController" customModule="Happy_Habits" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Happy Habits" image="Happy Habits" selectedImage="Happy Habits" id="ROm-Fg-eZT"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -306,6 +313,7 @@
     <resources>
         <image name="Chart Icon" width="30" height="30"/>
         <image name="Happy Habits" width="30" height="30"/>
+        <image name="Menu" width="30" height="30"/>
         <image name="Your Habits" width="30" height="30"/>
     </resources>
 </document>
