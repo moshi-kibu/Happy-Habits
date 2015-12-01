@@ -25,10 +25,11 @@ class HabitDetailViewController: UIViewController {
         self.setTextView()
         self.habitButton.layer.cornerRadius = 5
         self.studyButton.layer.cornerRadius = 5
+        
         if userHabits.contains(self.habit) {
             self.habitButton.setTitle("Drop Habit", forState: UIControlState.Normal)
         }
-        // Do any additional setup after loading the view.
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -73,12 +74,27 @@ class HabitDetailViewController: UIViewController {
     func setTextView() {
         self.webView.hidden = true
         let textView = UITextView()
-        textView.backgroundColor = UIColor.yellowColor()
         textView.text = self.habit.details
+        textView.font = loraFont.fontWithSize(15)
         textView.frame = holderView.bounds
         textView.autoresizingMask.insert(UIViewAutoresizing.FlexibleWidth)
         textView.autoresizingMask.insert(UIViewAutoresizing.FlexibleHeight)
         self.holderView.addSubview(textView)
+        var color = UIColor()
+        switch habit.level {
+        case "Simple":
+            color = colorsArray[1]
+            break
+        case "Moderate":
+            color = colorsArray[2]
+            break
+        case "Challenging":
+            color = colorsArray[3]
+            break
+        default:
+            break
+        }
+        textView.backgroundColor = color
     }
     
     func setWebView() {

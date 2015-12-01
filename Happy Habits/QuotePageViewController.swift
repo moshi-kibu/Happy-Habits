@@ -8,12 +8,14 @@
 
 import UIKit
 import Parse
+import ChameleonFramework
 
 class QuotePageViewController: UIViewController {
 
     @IBOutlet weak var imageForQuote: UIImageView!
     @IBOutlet weak var QuoteLabel: UILabel!
     @IBOutlet weak var quotePageControl: UIPageControl!
+    var timer: NSTimer = NSTimer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +23,14 @@ class QuotePageViewController: UIViewController {
             allQuotes = Quote.getAllQuotes()
         }
         self.updateQuotesUI()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("changeScreenAutomatically"), userInfo: nil, repeats: true)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        timer.invalidate()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,9 +43,8 @@ class QuotePageViewController: UIViewController {
         self.imageForQuote.layer.cornerRadius = 10
         self.imageForQuote.clipsToBounds = true
         self.quotePageControl.numberOfPages = allQuotes.count
-        self.QuoteLabel.text = allQuotes.first?.quoteAndAuthorString()
-        self.imageForQuote.image = allQuotes.first?.getImageForQuote()
-        self.QuoteLabel.font = loraFont.fontWithSize(16)
+        self.changeScreen(self)
+        self.QuoteLabel.font = loraFont.fontWithSize(18)
     }
     
     @IBAction func swipeRight(sender: AnyObject) {
@@ -56,5 +65,18 @@ class QuotePageViewController: UIViewController {
         let thisQuote = allQuotes[self.quotePageControl.currentPage]
         self.QuoteLabel.text = thisQuote.quoteAndAuthorString()
         self.imageForQuote.image = thisQuote.getImageForQuote()
+        self.QuoteLabel.textColor = UIColor.blackColor()
+        self.quotePageControl.currentPageIndicatorTintColor = UIColor.flatGrayColorDark().darkenByPercentage(0.50)
+        self.quotePageControl.pageIndicatorTintColor = UIColor.flatGrayColorDark()
+    }
+    
+    func changeScreenAutomatically() {
+        var currentPage = self.quotePageControl.currentPage
+        currentPage += 1
+        if currentPage >= allQuotes.count {
+            currentPage = 0
+        }
+        self.quotePageControl.currentPage = currentPage
+        self.changeScreen(self)
     }
 }

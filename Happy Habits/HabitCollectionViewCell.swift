@@ -12,10 +12,8 @@ import ChameleonFramework
 class HabitCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var level: UILabel!
-    var colorsArray = NSArray(ofColorsWithColorScheme:ColorScheme.Triadic, with:UIColor.flatMintColor(), flatScheme:true) as! [UIColor]
     
     func setUI(habit: Habit) {
-        
         self.title.text = habit.title
         self.title.font = loraFont.fontWithSize(16)
         self.level.text = habit.level

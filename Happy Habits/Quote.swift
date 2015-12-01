@@ -46,6 +46,7 @@ class Quote : PFObject, PFSubclassing  {
         query.limit = 1000
         do {
             quotes = try query.findObjects() as! [Quote]
+            quotes.shuffleInPlace()
         } catch {
             
         }

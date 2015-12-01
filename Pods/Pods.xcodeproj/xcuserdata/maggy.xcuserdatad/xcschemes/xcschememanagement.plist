@@ -49,6 +49,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Popover.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -62,7 +67,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1B56897C26E0D569814A4C21F38FE259</key>
+		<key>33FCA3C35658DA5F01AD406EBDD4A8A4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3AB8FC970966128B19D0E515E63CE60E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

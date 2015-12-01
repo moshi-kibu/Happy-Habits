@@ -19,6 +19,8 @@ class AllHabitsCollectionViewController: UICollectionViewController, ENSideMenuD
         
         self.setCollectionViewUI()
         self.sideMenuController()?.sideMenu?.delegate = self
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName:loraFont.fontWithSize(18)]
+        
         self.levelSelector.setTitleTextAttributes([NSFontAttributeName:loraFont.fontWithSize(12)], forState: .Normal)
         self.levelSelector.setTitleTextAttributes([NSFontAttributeName:loraFont.fontWithSize(12)], forState: .Selected)
         
@@ -40,16 +42,16 @@ class AllHabitsCollectionViewController: UICollectionViewController, ENSideMenuD
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         print(UIDevice.currentDevice().modelName)
         
-        if UIDevice.currentDevice().modelName == "Simulator" ||
+        if UIDevice.currentDevice().modelName == "iPhone 6s Plus" ||
            UIDevice.currentDevice().modelName == "iPhone 6 Plus" {
             layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 10, right: 20)
             layout.itemSize = CGSize(width: 110, height: 110)
-        } else if UIDevice.currentDevice().modelName == "iPhone 6s" ||
-            UIDevice.currentDevice().modelName == "iPhone 6" {
+        } else if UIDevice.currentDevice().modelName == "iPhone 6s" || UIDevice.currentDevice().modelName == "iPhone 6" || UIDevice.currentDevice().modelName == "Simulator" {
             layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 10, right: 20)
             layout.itemSize = CGSize(width: 125, height: 125)
         }
-        
+
+    
         
         collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         collectionView!.dataSource = self

@@ -18,7 +18,7 @@ var allHabits : [Habit] = []
 var allQuotes : [Quote] = []
 var userLogs : [Log] = []
 var loraFont : UIFont = UIFont()
-
+var colorsArray = NSArray(ofColorsWithColorScheme:ColorScheme.Triadic, with:UIColor.flatMintColor(), flatScheme:true) as! [UIColor]
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

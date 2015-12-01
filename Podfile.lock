@@ -32,6 +32,7 @@ PODS:
   - ParseUI (1.1.6):
     - Bolts/Tasks (~> 1.2)
     - Parse (~> 1.8)
+  - Popover (0.8.0)
 
 DEPENDENCIES:
   - ChameleonFramework/Swift
@@ -41,6 +42,7 @@ DEPENDENCIES:
   - ParseFacebookUtilsV4
   - ParseTwitterUtils
   - ParseUI
+  - Popover
 
 SPEC CHECKSUMS:
   Bolts: 722ab9a4f8b50fc4ed1b9998a5a7a2b3f16d80b4
@@ -51,5 +53,6 @@ SPEC CHECKSUMS:
   ParseFacebookUtilsV4: eab9b4ade12f0800b4d30f6b808bca55ce17a0e9
   ParseTwitterUtils: 41e8849e37db471e874c6e515190ded19e043dc8
   ParseUI: 8a22e448c03f825203d8c379c80523517f68baa3
+  Popover: 666aeb02095fff5cbf6896548a92abc84c523b60
 
 COCOAPODS: 0.39.0
