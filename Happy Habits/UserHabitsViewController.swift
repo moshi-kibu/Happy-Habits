@@ -11,7 +11,7 @@ import Parse
 import QuartzCore
 import ChameleonFramework
 
-class UserHabitsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class UserHabitsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -47,11 +47,11 @@ class UserHabitsViewController: UIViewController, UITableViewDelegate, UITableVi
         return header
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userHabits.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
         cell.backgroundColor = UIColor.flatYellowColor()
         cell.textLabel?.text = userHabits[indexPath.row].title
@@ -60,7 +60,7 @@ class UserHabitsViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let habit = userHabits[indexPath.row]
         let detailController = HabitDetailViewController()
         detailController.habit = habit

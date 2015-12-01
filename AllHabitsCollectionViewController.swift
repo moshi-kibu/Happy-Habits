@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AllHabitsCollectionViewController: UICollectionViewController, ENSideMenuDelegate {
+class AllHabitsCollectionViewController: UICollectionViewController {
     
     @IBOutlet weak var levelSelector: UISegmentedControl!
     var habitsToDisplay : [Habit] = []
@@ -18,7 +18,6 @@ class AllHabitsCollectionViewController: UICollectionViewController, ENSideMenuD
         super.viewDidLoad()
         
         self.setCollectionViewUI()
-        self.sideMenuController()?.sideMenu?.delegate = self
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName:loraFont.fontWithSize(18)]
         
         self.levelSelector.setTitleTextAttributes([NSFontAttributeName:loraFont.fontWithSize(12)], forState: .Normal)
@@ -119,6 +118,6 @@ class AllHabitsCollectionViewController: UICollectionViewController, ENSideMenuD
     }
 
     @IBAction func menuButtonTapped(sender: AnyObject) {
-        toggleSideMenuView()
+        showPopoverMenu(self)
     }
 }

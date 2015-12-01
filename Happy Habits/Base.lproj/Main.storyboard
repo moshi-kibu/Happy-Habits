@@ -251,7 +251,7 @@
         <!--Your Habits-->
         <scene sceneID="RVv-Lb-dP3">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xbd-81-7qd" customClass="SlideMenuViewController" customModule="Happy_Habits" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xbd-81-7qd" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Your Habits" image="Your Habits" selectedImage="Your Habits" id="Afy-6d-nV2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sKA-WH-gbh">
@@ -271,7 +271,7 @@
         <!--Track Happiness-->
         <scene sceneID="hrI-5d-HoQ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mPs-CQ-z5G" customClass="SlideMenuViewController" customModule="Happy_Habits" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mPs-CQ-z5G" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Track Happiness" image="Chart Icon" selectedImage="Chart Icon" id="4Cm-dF-xIC"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XTO-gu-zo2">
@@ -291,7 +291,7 @@
         <!--Happy Habits-->
         <scene sceneID="VTO-Ku-Qhg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Wl-72-PHl" customClass="SlideMenuViewController" customModule="Happy_Habits" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Wl-72-PHl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Happy Habits" image="Happy Habits" selectedImage="Happy Habits" id="ROm-Fg-eZT"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

@@ -10,7 +10,7 @@ import UIKit
 import Charts
 import ChameleonFramework
 
-class HappinessChartViewController: UIViewController, ENSideMenuDelegate {
+class HappinessChartViewController: UIViewController {
     
     @IBOutlet weak var lineChartView: LineChartView!
     @IBOutlet weak var timeSelector: UISegmentedControl!
@@ -19,7 +19,6 @@ class HappinessChartViewController: UIViewController, ENSideMenuDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.sideMenuController()?.sideMenu?.delegate = self
         self.timeSelector.setTitleTextAttributes([NSFontAttributeName:loraFont.fontWithSize(12)], forState: .Normal)
         self.timeSelector.setTitleTextAttributes([NSFontAttributeName:loraFont.fontWithSize(12)], forState: .Selected)
         // Do any additional setup after loading the view.
@@ -31,7 +30,7 @@ class HappinessChartViewController: UIViewController, ENSideMenuDelegate {
     }
     
     @IBAction func menuButtonTapped(sender: AnyObject) {
-        toggleSideMenuView()
+        showPopoverMenu(self)
     }
 
     @IBAction func timeSelectorChanged(sender: UISegmentedControl) {

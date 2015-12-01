@@ -11,8 +11,9 @@ import ParseUI
 import Parse
 import ChameleonFramework
 import QuartzCore
+import Popover
 
-class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, ENSideMenuDelegate {
+class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var topContainerView: UIView!
@@ -24,11 +25,6 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
         super.viewDidLoad()
         
         user = PFUser.currentUser()
-        self.sideMenuController()?.sideMenu?.delegate = self
-        
-//        if let image = self.menuButton.image {
-//            self.menuButton.image = image.imageWithColor(UIColor.whiteColor()).imageWithRenderingMode(.AlwaysOriginal)
-//        }
 
     }
     
@@ -137,8 +133,8 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     }
     
     @IBAction func menuButtonTapped(sender: AnyObject) {
-        toggleSideMenuView()
+        showPopoverMenu(self)
     }
-    
 }
+
 
