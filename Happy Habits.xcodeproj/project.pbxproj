@@ -222,14 +222,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		966D31EE1C090ED700F11B3F /* MenuViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				96CA6A551C0E37BE006D39DD /* PopoverMenu.swift */,
-			);
-			name = MenuViewControllers;
-			sourceTree = "<group>";
-		};
 		967172ED1BFBC1CF000DCC9E = {
 			isa = PBXGroup;
 			children = (
@@ -304,9 +296,9 @@
 		96CA02591BFBE4B400D3D098 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				96CA6A551C0E37BE006D39DD /* PopoverMenu.swift */,
 				9627EC3D1C06683800A17318 /* HabitDetailViewController.swift */,
 				967397EE1C0D048000D3A1EA /* TabBarViewController.swift */,
-				966D31EE1C090ED700F11B3F /* MenuViewControllers */,
 				9627EC361C063A8E00A17318 /* Tabbar ViewControllers */,
 				9627EC351C063A5B00A17318 /* Container ViewControllers */,
 				9627EC291C04000800A17318 /* Signup/Login */,

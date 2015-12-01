@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class AllHabitsCollectionViewController: UICollectionViewController {
     
     @IBOutlet weak var levelSelector: UISegmentedControl!
