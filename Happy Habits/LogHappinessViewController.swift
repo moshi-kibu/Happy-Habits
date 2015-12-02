@@ -43,7 +43,7 @@ class LogHappinessViewController: UIViewController {
         userLogs.append(Log(happinessLevel: currentHappiness))
         user["HappinessLog"] = userLogs
         user.saveEventually()
-        if userLogs.count >= 1 {
+        if userLogs.count == 1 {
           self.showPopoverNotification()
         } else {
            (self.parentViewController as! ViewController).removeHappyLog(self)
