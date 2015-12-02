@@ -34,10 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         // Initialize Parse.
-        Parse.setApplicationId("bRwQbVWCtAi7zPsYoCM4VnM5sh1soYGWDPinprsO",
-            clientKey: "mQkhiskXv4v2GevAmj3kYG2bYg7ocOeKp31wd08l")
+        Parse.setApplicationId(parseApplicationID,
+            clientKey: parseClientKey)
         
-        PFTwitterUtils.initializeWithConsumerKey("xAdcmuHjvDFV6JuJUhrWzaWGN", consumerSecret:"j9AXr6yvjwtLvu2z0dWVwOzgrrJoZkqW6Qc9VYwdldjHQfsuk6")
+        PFTwitterUtils.initializeWithConsumerKey(twitterConsumerKey, consumerSecret: twitterConsumerSecret)
         
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions);
         

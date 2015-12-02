@@ -25,6 +25,8 @@
 		965440801C03C759009BE9AD /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9654407B1C03C722009BE9AD /* Charts.framework */; };
 		965440811C03C759009BE9AD /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9654407B1C03C722009BE9AD /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		965440851C03C7C7009BE9AD /* HappinessChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965440841C03C7C7009BE9AD /* HappinessChartViewController.swift */; };
+		966BC5FA1C0E6E2200723645 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 966BC5F91C0E6E2200723645 /* .gitignore */; };
+		966BC5FE1C0E716200723645 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966BC5FD1C0E716200723645 /* Config.swift */; };
 		967172FA1BFBC1CF000DCC9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967172F91BFBC1CF000DCC9E /* AppDelegate.swift */; };
 		967172FC1BFBC1CF000DCC9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967172FB1BFBC1CF000DCC9E /* ViewController.swift */; };
 		967172FF1BFBC1CF000DCC9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 967172FD1BFBC1CF000DCC9E /* Main.storyboard */; };
@@ -123,6 +125,8 @@
 		9633CA731BFC1739003E915A /* LogHappiness.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogHappiness.xib; sourceTree = "<group>"; };
 		965440741C03C722009BE9AD /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../Downloads/ios-charts-master/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
 		965440841C03C7C7009BE9AD /* HappinessChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HappinessChartViewController.swift; sourceTree = "<group>"; };
+		966BC5F91C0E6E2200723645 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		966BC5FD1C0E716200723645 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		967172F61BFBC1CF000DCC9E /* Happy Habits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Happy Habits.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		967172F91BFBC1CF000DCC9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		967172FB1BFBC1CF000DCC9E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -324,13 +328,15 @@
 		96CA025B1BFBE4E600D3D098 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				961A97A91C0D33EA00A45671 /* Extensions.swift */,
+				966BC5FD1C0E716200723645 /* Config.swift */,
 				9633CA6D1BFBFDF4003E915A /* Norican-Regular.ttf */,
 				960BB4741C0C0ECA002F959A /* Lora-Regular.ttf */,
 				96D445981BFBF188007D9EF2 /* Happy Habits-Bridging-Header.h */,
 				965440741C03C722009BE9AD /* Charts.xcodeproj */,
 				967173001BFBC1CF000DCC9E /* Assets.xcassets */,
+				966BC5F91C0E6E2200723645 /* .gitignore */,
 				967173051BFBC1CF000DCC9E /* Info.plist */,
-				961A97A91C0D33EA00A45671 /* Extensions.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -488,6 +494,7 @@
 				967173041BFBC1CF000DCC9E /* LaunchScreen.storyboard in Resources */,
 				96B620F01C08D8180040365F /* QuotePageView.xib in Resources */,
 				9627EC3C1C06674300A17318 /* HabitDetailView.xib in Resources */,
+				966BC5FA1C0E6E2200723645 /* .gitignore in Resources */,
 				967173011BFBC1CF000DCC9E /* Assets.xcassets in Resources */,
 				9627EC381C06409100A17318 /* HabitCollectionCell.xib in Resources */,
 				9627EC2F1C06352C00A17318 /* UserHabitsTableHeader.xib in Resources */,
@@ -571,6 +578,7 @@
 				9633CA721BFC1715003E915A /* LogHappinessViewController.swift in Sources */,
 				9627EC321C06366300A17318 /* UserHabitsTableHeader.swift in Sources */,
 				9633CA6B1BFBFB2B003E915A /* LoginViewController.swift in Sources */,
+				966BC5FE1C0E716200723645 /* Config.swift in Sources */,
 				96B620F41C08DA8B0040365F /* QuotePageViewController.swift in Sources */,
 				96CA02551BFBD01000D3D098 /* Habit.swift in Sources */,
 				9627EC341C063A2F00A17318 /* AllHabitsCollectionViewController.swift in Sources */,

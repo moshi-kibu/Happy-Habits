@@ -77,7 +77,7 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     
     func showHappyLogOrHappyQuotes() {
         if userLogs.last != nil {
-            if userLogs.last?.loggedToday() == false {
+            if userLogs.last?.loggedToday() == true {
                 self.showHappyLog()
             } else {
                 self.showHappyQuotes()
