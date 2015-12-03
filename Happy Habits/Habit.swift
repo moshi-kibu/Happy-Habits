@@ -46,6 +46,7 @@ class Habit: PFObject, PFSubclassing  {
         query.limit = 1000
         do {
             habits = try query.findObjects() as! [Habit]
+            habits.shuffleInPlace()
         } catch {
             
         }

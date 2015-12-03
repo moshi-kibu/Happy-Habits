@@ -57,6 +57,7 @@ class LogHappinessViewController: UIViewController {
         let textLabel = UITextView(frame: aView.bounds)
         textLabel.center = aView.center
         textLabel.textAlignment = .Center
+        textLabel.userInteractionEnabled = false
         textLabel.text = "Check back tomorrow to log your happiness again! \n \n You can log it every 24 hours."
         textLabel.textColor = UIColor.whiteColor()
         
