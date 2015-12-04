@@ -16,6 +16,7 @@ class Log: PFObject, PFSubclassing  {
     @NSManaged var userID : String
     @NSManaged var loggedAt : NSDate
     
+    
     init(happinessLevel : Int) {
         super.init()
         self.happinessLevel = happinessLevel
@@ -39,6 +40,7 @@ class Log: PFObject, PFSubclassing  {
     static func parseClassName() -> String {
         return "Log"
     }
+
     
     class func findLogsForCurrentUser() -> [Log] {
         var logs : [Log] = []

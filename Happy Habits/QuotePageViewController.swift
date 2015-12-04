@@ -21,7 +21,6 @@ class QuotePageViewController: UIViewController {
         super.viewDidLoad()
         updateQuotesUI()
         changeScreen(self)
-
     }
     
     override func viewDidAppear(animated: Bool) {

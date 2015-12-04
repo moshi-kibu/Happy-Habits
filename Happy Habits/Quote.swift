@@ -9,7 +9,6 @@
 import Foundation
 import Parse
 
-
 class Quote : PFObject, PFSubclassing  {
     
     @NSManaged var quoteText : String

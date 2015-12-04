@@ -16,9 +16,6 @@ class HappinessChartViewController: UIViewController {
     @IBOutlet weak var timeSelector: UISegmentedControl!
     
     override func viewDidLoad() {
-        if userLogs == [] {
-            userLogs = Log.findLogsForCurrentUser()
-        }
         super.viewDidLoad()
         timeSelector.setTitleTextAttributes([NSFontAttributeName:loraFont.fontWithSize(12)], forState: .Normal)
         timeSelector.setTitleTextAttributes([NSFontAttributeName:loraFont.fontWithSize(12)], forState: .Selected)

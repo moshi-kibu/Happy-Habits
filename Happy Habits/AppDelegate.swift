@@ -19,8 +19,6 @@ var loraFont : UIFont = UIFont()
 var triadicColorsArray = ColorSchemeOf(ColorScheme.Triadic, color: UIColor.flatMintColor(), isFlatScheme: true)
 var mainColorsArray = ColorSchemeOf(ColorScheme.Analogous, color: UIColor.flatSkyBlueColor(), isFlatScheme: true)
 
-
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -80,8 +78,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func getInitialData() {
         dispatch_async(dispatch_get_main_queue()) {
-            Quote.getAllQuotes()
-            Habit.getAllHabits()
             if PFUser.currentUser()?.isAuthenticated() == true {
                 userHabits = Habit.getHabitsForCurrentUser()
                 userLogs = Log.findLogsForCurrentUser()
