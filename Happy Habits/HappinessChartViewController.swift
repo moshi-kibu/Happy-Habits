@@ -14,10 +14,11 @@ class HappinessChartViewController: UIViewController {
     
     @IBOutlet weak var lineChartView: LineChartView!
     @IBOutlet weak var timeSelector: UISegmentedControl!
-    var logs : [Log] = []
-    var colorsArray = NSArray(ofColorsWithColorScheme:ColorScheme.Analogous, with:UIColor.flatSkyBlueColor(), flatScheme:true) as! [UIColor]
     
     override func viewDidLoad() {
+        if userLogs == [] {
+            userLogs = Log.findLogsForCurrentUser()
+        }
         super.viewDidLoad()
         self.timeSelector.setTitleTextAttributes([NSFontAttributeName:loraFont.fontWithSize(12)], forState: .Normal)
         self.timeSelector.setTitleTextAttributes([NSFontAttributeName:loraFont.fontWithSize(12)], forState: .Selected)
@@ -25,7 +26,6 @@ class HappinessChartViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        self.logs = Log.findLogsForCurrentUser()
         checkSelectorAndSetChart()
     }
     
@@ -95,7 +95,7 @@ class HappinessChartViewController: UIViewController {
         var colors : [UIColor] = []
         var average : Double = 0
         
-        var logsForDateRange = logs.filter({($0["loggedAt"]! as! NSDate) >= minDate && ($0["loggedAt"]! as! NSDate) <= maxDate})
+        var logsForDateRange = userLogs.filter({($0["loggedAt"]! as! NSDate) >= minDate && ($0["loggedAt"]! as! NSDate) <= maxDate})
         if logsForDateRange.count >= 1 {
             
         
@@ -240,145 +240,5 @@ class HappinessChartViewController: UIViewController {
         return color
     }
     
-    func testDataSet() -> [Log] {
-        let testLogs = [Log(happinessLevel: 10),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 8),
-            Log(happinessLevel: 9),
-            Log(happinessLevel: 6),
-            Log(happinessLevel: 8),
-            Log(happinessLevel: 9),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 5),
-            Log(happinessLevel: 6),
-            Log(happinessLevel: 5),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 10),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 8),
-            Log(happinessLevel: 9),
-            Log(happinessLevel: 6),
-            Log(happinessLevel: 8),
-            Log(happinessLevel: 9),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 5),
-            Log(happinessLevel: 6),
-            Log(happinessLevel: 5),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 10),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 8),
-            Log(happinessLevel: 9),
-            Log(happinessLevel: 6),
-            Log(happinessLevel: 8),
-            Log(happinessLevel: 9),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 5),
-            Log(happinessLevel: 6),
-            Log(happinessLevel: 5),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 10),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 8),
-            Log(happinessLevel: 9),
-            Log(happinessLevel: 6),
-            Log(happinessLevel: 8),
-            Log(happinessLevel: 9),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 5),
-            Log(happinessLevel: 6),
-            Log(happinessLevel: 5),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 10),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 8),
-            Log(happinessLevel: 9),
-            Log(happinessLevel: 6),
-            Log(happinessLevel: 8),
-            Log(happinessLevel: 9),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 5),
-            Log(happinessLevel: 6),
-            Log(happinessLevel: 5),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 10),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 8),
-            Log(happinessLevel: 9),
-            Log(happinessLevel: 6),
-            Log(happinessLevel: 8),
-            Log(happinessLevel: 9),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 5),
-            Log(happinessLevel: 6),
-            Log(happinessLevel: 5),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 10),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 8),
-            Log(happinessLevel: 9),
-            Log(happinessLevel: 6),
-            Log(happinessLevel: 8),
-            Log(happinessLevel: 9),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 5),
-            Log(happinessLevel: 6),
-            Log(happinessLevel: 5),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 10),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 8),
-            Log(happinessLevel: 9),
-            Log(happinessLevel: 6),
-            Log(happinessLevel: 8),
-            Log(happinessLevel: 9),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 5),
-            Log(happinessLevel: 6),
-            Log(happinessLevel: 5),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 10),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 8),
-            Log(happinessLevel: 9),
-            Log(happinessLevel: 6),
-            Log(happinessLevel: 8),
-            Log(happinessLevel: 9),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 5),
-            Log(happinessLevel: 6),
-            Log(happinessLevel: 5),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 10),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 8),
-            Log(happinessLevel: 9),
-            Log(happinessLevel: 6),
-            Log(happinessLevel: 8),
-            Log(happinessLevel: 9),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 5),
-            Log(happinessLevel: 6),
-            Log(happinessLevel: 5),
-            Log(happinessLevel: 7),
-            Log(happinessLevel: 10),
-            Log(happinessLevel: 7)]
-        var date = NSDate()
-        for log in testLogs {
-            log["loggedAt"] = date
-            date = date.dateByAddingTimeInterval(-(60*60*24*1))
-        }
-        return testLogs
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

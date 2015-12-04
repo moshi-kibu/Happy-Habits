@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '9A165B60BCA123FFEDE3E473'
+               BlueprintIdentifier = '99B7C1A3BB1D7314E2E3B657'
                BlueprintName = 'ParseTwitterUtils'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'ParseTwitterUtils.framework'>

@@ -14,8 +14,6 @@ import QuartzCore
 import ChameleonFramework
 
 var userHabits : [Habit] = []
-var allHabits : [Habit] = []
-var allQuotes : [Quote] = []
 var userLogs : [Log] = []
 var loraFont : UIFont = UIFont()
 var colorsArray = NSArray(ofColorsWithColorScheme:ColorScheme.Triadic, with:UIColor.flatMintColor(), flatScheme:true) as! [UIColor]
@@ -77,12 +75,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-
-    
     func getInitialData() {
         dispatch_async(dispatch_get_main_queue()) {
-            allHabits = Habit.getAllHabits()
-            allQuotes = Quote.getAllQuotes()
+            Quote.getAllQuotes()
+            Habit.getAllHabits()
             if PFUser.currentUser()?.isAuthenticated() == true {
                 userHabits = Habit.getHabitsForCurrentUser()
                 userLogs = Log.findLogsForCurrentUser()

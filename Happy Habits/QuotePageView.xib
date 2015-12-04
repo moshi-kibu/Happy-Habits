@@ -43,7 +43,6 @@
                 </pageControl>
             </subviews>
             <animations/>
-            <color key="backgroundColor" red="0.28627450980000002" green="0.0" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
             <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="tHS-XH-YmT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4nQ-vT-z5N"/>

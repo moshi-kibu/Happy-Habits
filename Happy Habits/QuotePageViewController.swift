@@ -19,10 +19,9 @@ class QuotePageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if allQuotes == [] {
-            allQuotes = Quote.getAllQuotes()
-        }
         self.updateQuotesUI()
+        self.changeScreen(self)
+
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -39,44 +38,48 @@ class QuotePageViewController: UIViewController {
     }
     
     func updateQuotesUI() {
-        self.view.layer.cornerRadius = 10
-        self.imageForQuote.layer.cornerRadius = 10
-        self.imageForQuote.clipsToBounds = true
-        self.quotePageControl.numberOfPages = allQuotes.count
-        self.changeScreen(self)
-        self.QuoteLabel.font = loraFont.fontWithSize(18)
+        view.layer.cornerRadius = 10
+        imageForQuote.layer.cornerRadius = 10
+        imageForQuote.clipsToBounds = true
+        quotePageControl.numberOfPages = Quote.getAllQuotes().count
+        QuoteLabel.font = loraFont.fontWithSize(18)
     }
     
     @IBAction func swipeRight(sender: AnyObject) {
-        var currentPage = self.quotePageControl.currentPage
+        var currentPage = quotePageControl.currentPage
         currentPage -= 1
-        self.quotePageControl.currentPage = currentPage
-        self.changeScreen(self)
+        quotePageControl.currentPage = currentPage
+        changeScreen(self)
     }
 
     @IBAction func swipeLeft(sender: AnyObject) {
-        var currentPage = self.quotePageControl.currentPage
+        var currentPage = quotePageControl.currentPage
         currentPage += 1
-        self.quotePageControl.currentPage = currentPage
-        self.changeScreen(self)
+        quotePageControl.currentPage = currentPage
+        changeScreen(self)
     }
 
     @IBAction func changeScreen(sender: AnyObject) {
-        let thisQuote = allQuotes[self.quotePageControl.currentPage]
-        self.QuoteLabel.text = thisQuote.quoteAndAuthorString()
-        self.imageForQuote.image = thisQuote.getImageForQuote()
-        self.QuoteLabel.textColor = UIColor.blackColor()
-        self.quotePageControl.currentPageIndicatorTintColor = UIColor.flatGrayColorDark().darkenByPercentage(0.50)
-        self.quotePageControl.pageIndicatorTintColor = UIColor.flatGrayColorDark()
+        var thisQuote = Quote.getAllQuotes()[quotePageControl.currentPage]
+        while thisQuote.image == nil {
+            var allQuotes = Quote.getAllQuotes()
+            allQuotes.shuffleInPlace()
+            thisQuote = allQuotes[quotePageControl.currentPage]
+        }
+        QuoteLabel.text = thisQuote.quoteAndAuthorString()
+        imageForQuote.image = thisQuote.image
+        QuoteLabel.textColor = UIColor.blackColor()
+        quotePageControl.currentPageIndicatorTintColor = UIColor.flatGrayColorDark().darkenByPercentage(0.50)
+        quotePageControl.pageIndicatorTintColor = UIColor.flatGrayColorDark()
     }
     
     func changeScreenAutomatically() {
-        var currentPage = self.quotePageControl.currentPage
+        var currentPage = quotePageControl.currentPage
         currentPage += 1
-        if currentPage >= allQuotes.count {
+        if currentPage >= Quote.getAllQuotes().count {
             currentPage = 0
         }
-        self.quotePageControl.currentPage = currentPage
-        self.changeScreen(self)
+        quotePageControl.currentPage = currentPage
+        changeScreen(self)
     }
 }

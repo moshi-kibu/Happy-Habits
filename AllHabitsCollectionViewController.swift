@@ -29,9 +29,6 @@ class AllHabitsCollectionViewController: UICollectionViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        if allHabits == [] {
-            Habit.getAllHabits()
-        }
         if userHabits == [] {
             Habit.getHabitsForCurrentUser()
         }
@@ -103,15 +100,15 @@ class AllHabitsCollectionViewController: UICollectionViewController {
     func checkSelectorAndReloadData(){
         switch self.levelSelector.selectedSegmentIndex {
         case 0:
-            self.habitsToDisplay = allHabits
+            self.habitsToDisplay = Habit.getAllHabits()
             break
         case 1:
-            self.habitsToDisplay = allHabits.filter({$0.level == "Simple"})
+            self.habitsToDisplay = Habit.getAllHabits().filter({$0.level == "Simple"})
             break
         case 2:
-            self.habitsToDisplay = allHabits.filter({$0.level == "Moderate"})
+            self.habitsToDisplay = Habit.getAllHabits().filter({$0.level == "Moderate"})
         case 3:
-            self.habitsToDisplay = allHabits.filter({$0.level == "Challenging"})
+            self.habitsToDisplay = Habit.getAllHabits().filter({$0.level == "Challenging"})
         default:
             break
         }

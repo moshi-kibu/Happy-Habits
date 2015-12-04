@@ -15,6 +15,9 @@ class Quote : PFObject, PFSubclassing  {
     @NSManaged var quoteText : String
     @NSManaged var authorName : String
     @NSManaged var imageFile : PFFile
+    var image : UIImage?
+    private static var allQuotes : [Quote] = []
+    
     
     init(quoteText : String, authorName: String, imageFile: PFFile) {
         super.init()
@@ -40,17 +43,21 @@ class Quote : PFObject, PFSubclassing  {
         return "Quote"
     }
     
-    class func getAllQuotes() -> [Quote] {
-        var quotes = [Quote]()
-        let query = PFQuery(className:"Quote")
-        query.limit = 1000
-        do {
-            quotes = try query.findObjects() as! [Quote]
-            quotes.shuffleInPlace()
-        } catch {
-            
+    static func getAllQuotes() -> [Quote] {
+        if self.allQuotes == [] {
+            let query = PFQuery(className:"Quote")
+            query.limit = 1000
+            do {
+                allQuotes = try query.findObjects() as! [Quote]
+                allQuotes.shuffleInPlace()
+                for quote in allQuotes {
+                    quote.getImageForQuote()
+                }
+            } catch {
+                
+            }
         }
-        return quotes
+        return allQuotes
     }
     
     func quoteAndAuthorString() -> String {
@@ -62,15 +69,13 @@ class Quote : PFObject, PFSubclassing  {
         return string
     }
     
-    func getImageForQuote() -> UIImage {
-        var quoteImage = UIImage()
+    private func getImageForQuote() {
         do {
-           let data = try self.imageFile.getData()
-           quoteImage = UIImage(data: data)!
+            let imageData = try imageFile.getData()
+            image = UIImage(data:imageData)!
         } catch {
-           print("Error in getImageForQuote")
+            
         }
-        return quoteImage
     }
     
 }

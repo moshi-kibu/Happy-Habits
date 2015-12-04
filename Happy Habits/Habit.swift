@@ -15,6 +15,8 @@ class Habit: PFObject, PFSubclassing  {
     @NSManaged var details : String
     @NSManaged var studyURL : String
     
+    private static var allHabits : [Habit] = []
+    
     init(title:String, level: String, details: String, studyURL: String) {
         super.init()
         self.title = title
@@ -40,17 +42,18 @@ class Habit: PFObject, PFSubclassing  {
         return "Habit"
     }
     
-    class func getAllHabits() -> [Habit] {
-        var habits = [Habit]()
-        let query = PFQuery(className:"Habit")
-        query.limit = 1000
-        do {
-            habits = try query.findObjects() as! [Habit]
-            habits.shuffleInPlace()
-        } catch {
-            
+    static func getAllHabits() -> [Habit] {
+        if allHabits == [] {
+            let query = PFQuery(className:"Habit")
+            do {
+                allHabits = try query.findObjects() as! [Habit]
+                allHabits.shuffleInPlace()
+            } catch {
+                
+            }
         }
-        return habits
+
+        return allHabits
     }
     
     class func getHabitsForCurrentUser() -> [Habit] {
