@@ -21,13 +21,13 @@ class HabitCollectionViewCell: UICollectionViewCell {
         var color = UIColor.clearColor()
         switch habit.level {
         case "Simple":
-            color = colorsArray[1]
+            color = triadicColorsArray[1]
             break
         case "Moderate":
-            color = colorsArray[2]
+            color = triadicColorsArray[2]
             break
         case "Challenging":
-            color = colorsArray[3]
+            color = triadicColorsArray[3]
             break
         default:
             break

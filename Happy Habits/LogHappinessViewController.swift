@@ -20,7 +20,7 @@ class LogHappinessViewController: UIViewController {
     
     override func viewDidLoad() {
         self.view = NSBundle.mainBundle().loadNibNamed("LogHappiness", owner:self, options:nil)![0] as! UIView
-        self.view.backgroundColor = self.view.backgroundColor!.colorWithAlphaComponent(0.5)
+        self.view.backgroundColor = view.backgroundColor!.colorWithAlphaComponent(0.5)
         happyLogSlider.continuous = true
         saveButton.layer.cornerRadius = 5
         // Do any additional setup after loading the view.
@@ -34,25 +34,25 @@ class LogHappinessViewController: UIViewController {
     @IBAction func happyLogSliderValueChanged(sender: UISlider) {
         let currentValue = Int(sender.value)
         
-        self.happyLogLabel.text = "\(currentValue) / 10"
+        happyLogLabel.text = "\(currentValue) / 10"
     }
     
     @IBAction func saveTapped(sender: AnyObject) {
         let user = PFUser.currentUser()!
-        let currentHappiness = Int(self.happyLogSlider.value)
+        let currentHappiness = Int(happyLogSlider.value)
         userLogs.append(Log(happinessLevel: currentHappiness))
         user["HappinessLog"] = userLogs
         user.saveEventually()
         if userLogs.count == 1 {
-          self.showPopoverNotification()
+          showPopoverNotification()
         } else {
-           (self.parentViewController as! ViewController).removeHappyLog(self)
+           (parentViewController as! ViewController).removeHappyLog(self)
         }
     }
     
     func showPopoverNotification() {
-        let width = self.view.frame.width * 0.65
-        let height = self.view.frame.height * 0.65
+        let width = view.frame.width * 0.65
+        let height = view.frame.height * 0.65
         let aView = UIView(frame: CGRect(x: 0, y: 0, width: width, height: height))
         let textLabel = UITextView(frame: aView.bounds)
         textLabel.center = aView.center
@@ -68,17 +68,17 @@ class LogHappinessViewController: UIViewController {
             .Type(.Up)
             ] as [PopoverOption]
         popover = Popover(options: options, showHandler: nil, dismissHandler: self.dismissPopOverNotification)
-        popover.show(aView, fromView: self.saveButton, inView: self.view)
+        popover.show(aView, fromView: saveButton, inView: view)
         timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("dismissPopOverNotification"), userInfo: nil, repeats: false)
     }
     
     func dismissPopOverNotification() {
-            timer.invalidate()
+        timer.invalidate()
         if popover.isTopViewInWindow() {
             popover.dismiss()
         }
-        if self.view.isTopViewInWindow() {
-            (self.parentViewController as! ViewController).removeHappyLog(self)
+        if view.isTopViewInWindow() {
+            (parentViewController as! ViewController).removeHappyLog(self)
         }
         
     }

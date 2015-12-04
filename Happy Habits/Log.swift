@@ -41,13 +41,13 @@ class Log: PFObject, PFSubclassing  {
     }
     
     class func findLogsForCurrentUser() -> [Log] {
-        let query = PFQuery(className:"Log")
-        let currentUserID = PFUser.currentUser()!.objectId!
-        query.whereKey("userID", equalTo: currentUserID)
-        var logs = [Log]()
+        var logs : [Log] = []
         do {
-            logs = try query.findObjects() as! [Log]
-            
+            logs = PFUser.currentUser()!["HappinessLog"] as! [Log]
+            for log in logs {
+                let fetchedLog = try log.fetch()
+                logs.append(fetchedLog)
+            }
         } catch {
             
         }
@@ -55,7 +55,7 @@ class Log: PFObject, PFSubclassing  {
     }
     
     func loggedToday() -> Bool {
-        let createdDate = (self.loggedAt) as NSDate
+        let createdDate = (loggedAt) as NSDate
         let today = NSDate()
         let cal = NSCalendar.currentCalendar()
         let components = cal.components([.Day], fromDate: createdDate, toDate: today, options: [])

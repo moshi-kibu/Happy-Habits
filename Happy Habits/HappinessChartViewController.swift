@@ -20,8 +20,8 @@ class HappinessChartViewController: UIViewController {
             userLogs = Log.findLogsForCurrentUser()
         }
         super.viewDidLoad()
-        self.timeSelector.setTitleTextAttributes([NSFontAttributeName:loraFont.fontWithSize(12)], forState: .Normal)
-        self.timeSelector.setTitleTextAttributes([NSFontAttributeName:loraFont.fontWithSize(12)], forState: .Selected)
+        timeSelector.setTitleTextAttributes([NSFontAttributeName:loraFont.fontWithSize(12)], forState: .Normal)
+        timeSelector.setTitleTextAttributes([NSFontAttributeName:loraFont.fontWithSize(12)], forState: .Selected)
         // Do any additional setup after loading the view.
     }
     
@@ -40,7 +40,7 @@ class HappinessChartViewController: UIViewController {
     func checkSelectorAndSetChart() {
         let today = NSDate()
         var pastDate : NSDate
-        switch self.timeSelector.selectedSegmentIndex {
+        switch timeSelector.selectedSegmentIndex {
         case 0:
             pastDate = today.dateByAddingTimeInterval(-(60*60*24*7))
             setChart(pastDate, maxDate: today, forYear: false)

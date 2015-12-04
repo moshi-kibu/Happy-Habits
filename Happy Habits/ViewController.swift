@@ -18,13 +18,9 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var topContainerView: UIView!
     @IBOutlet weak var bottomContainerView: UIView!
-    var colorsArray = NSArray(ofColorsWithColorScheme:ColorScheme.Analogous, with:UIColor.flatSkyBlueColor(), flatScheme:true) as! [UIColor]
-    var user = PFUser.currentUser()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        user = PFUser.currentUser()
 
     }
     
@@ -39,10 +35,10 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
         }
         
         if (PFUser.currentUser() == nil) {
-            self.showLoginView()
+            showLoginView()
         } else {
-            self.showHabitsTable()
-            self.showHappyLogOrHappyQuotes()
+            showHabitsTable()
+            showHappyLogOrHappyQuotes()
         }
     }
     
@@ -53,21 +49,21 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
         parseLoginViewController.signUpController = SignUpViewController()
         parseLoginViewController.signUpController?.emailAsUsername = true
         parseLoginViewController.signUpController?.delegate = self
-        self.presentViewController(parseLoginViewController, animated: false, completion: nil)
+        presentViewController(parseLoginViewController, animated: false, completion: nil)
     }
     
     func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-        self.updateUserForInitialValues()
+        dismissViewControllerAnimated(true, completion: nil)
+        updateUserForInitialValues()
     }
     
     func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-        self.updateUserForInitialValues()
+        dismissViewControllerAnimated(true, completion: nil)
+        updateUserForInitialValues()
     }
     
     func updateUserForInitialValues() {
-        user = PFUser.currentUser()
+        let user = PFUser.currentUser()
         if user!["HappinessLog"] == nil {
             user!["HappinessLog"] = []
             user!["Habits"] = []
@@ -78,33 +74,33 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     func showHappyLogOrHappyQuotes() {
         if userLogs.last != nil {
             if userLogs.last?.loggedToday() == false {
-                self.showHappyLog()
+                showHappyLog()
             } else {
-                self.showHappyQuotes()
+                showHappyQuotes()
             }
 
         } else {
-            self.showHappyLog()
+            showHappyLog()
         }
     }
     
     func showHappyLog() {
-        self.clearViewsForContainer(self.topContainerView)
+        clearViewsForContainer(topContainerView)
         let happinessLogController = LogHappinessViewController()
-        self.addChildViewController(happinessLogController)
-        happinessLogController.view.frame = CGRectMake(0, 0, self.topContainerView.frame.size.width, self.topContainerView.frame.size.height);
+        addChildViewController(happinessLogController)
+        happinessLogController.view.frame = CGRectMake(0, 0, topContainerView.frame.size.width,topContainerView.frame.size.height);
         happinessLogController.view.layer.cornerRadius = 10
-        happinessLogController.view.backgroundColor = colorsArray[4].lightenByPercentage(0.10)
-        self.topContainerView.addSubview(happinessLogController.view)
+        happinessLogController.view.backgroundColor = mainColorsArray[4].lightenByPercentage(0.10)
+        topContainerView.addSubview(happinessLogController.view)
         happinessLogController.didMoveToParentViewController(self)
     }
     
     func showHappyQuotes() {
-        self.clearViewsForContainer(self.topContainerView)
+        clearViewsForContainer(topContainerView)
         let quotesViewController = QuotePageViewController()
-        self.addChildViewController(quotesViewController)
-        quotesViewController.view.frame = CGRectMake(0,0, self.topContainerView.frame.size.width, self.topContainerView.frame.size.height)
-        self.topContainerView.addSubview(quotesViewController.view)
+        addChildViewController(quotesViewController)
+        quotesViewController.view.frame = CGRectMake(0,0, topContainerView.frame.size.width,topContainerView.frame.size.height)
+        topContainerView.addSubview(quotesViewController.view)
         quotesViewController.didMoveToParentViewController(self)
     }
     
@@ -112,15 +108,15 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
         childController.didMoveToParentViewController(nil)
         childController.view.removeFromSuperview()
         childController.removeFromParentViewController()
-        self.showHappyQuotes()
+        showHappyQuotes()
     }
     
     func showHabitsTable() {
         let habitsViewController = UserHabitsViewController(nibName: "UserHabitsTableView", bundle: nil)
-        self.addChildViewController(habitsViewController)
-        habitsViewController.view.frame = CGRectMake(0, 0, self.bottomContainerView.frame.size.width, self.bottomContainerView.frame.size.height);
-        self.bottomContainerView.layer.cornerRadius = 10
-        self.bottomContainerView.addSubview(habitsViewController.view)
+        addChildViewController(habitsViewController)
+        habitsViewController.view.frame = CGRectMake(0, 0, bottomContainerView.frame.size.width, bottomContainerView.frame.size.height);
+        bottomContainerView.layer.cornerRadius = 10
+        bottomContainerView.addSubview(habitsViewController.view)
         habitsViewController.didMoveToParentViewController(self)
     }
     

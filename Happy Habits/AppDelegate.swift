@@ -16,7 +16,10 @@ import ChameleonFramework
 var userHabits : [Habit] = []
 var userLogs : [Log] = []
 var loraFont : UIFont = UIFont()
-var colorsArray = NSArray(ofColorsWithColorScheme:ColorScheme.Triadic, with:UIColor.flatMintColor(), flatScheme:true) as! [UIColor]
+var triadicColorsArray = ColorSchemeOf(ColorScheme.Triadic, color: UIColor.flatMintColor(), isFlatScheme: true)
+var mainColorsArray = ColorSchemeOf(ColorScheme.Analogous, color: UIColor.flatSkyBlueColor(), isFlatScheme: true)
+
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

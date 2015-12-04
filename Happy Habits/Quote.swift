@@ -44,7 +44,7 @@ class Quote : PFObject, PFSubclassing  {
     }
     
     static func getAllQuotes() -> [Quote] {
-        if self.allQuotes == [] {
+        if allQuotes == [] {
             let query = PFQuery(className:"Quote")
             query.limit = 1000
             do {

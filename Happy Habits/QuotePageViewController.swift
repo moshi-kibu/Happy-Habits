@@ -19,8 +19,8 @@ class QuotePageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.updateQuotesUI()
-        self.changeScreen(self)
+        updateQuotesUI()
+        changeScreen(self)
 
     }
     
@@ -60,12 +60,7 @@ class QuotePageViewController: UIViewController {
     }
 
     @IBAction func changeScreen(sender: AnyObject) {
-        var thisQuote = Quote.getAllQuotes()[quotePageControl.currentPage]
-        while thisQuote.image == nil {
-            var allQuotes = Quote.getAllQuotes()
-            allQuotes.shuffleInPlace()
-            thisQuote = allQuotes[quotePageControl.currentPage]
-        }
+        let thisQuote = Quote.getAllQuotes()[quotePageControl.currentPage]
         QuoteLabel.text = thisQuote.quoteAndAuthorString()
         imageForQuote.image = thisQuote.image
         QuoteLabel.textColor = UIColor.blackColor()

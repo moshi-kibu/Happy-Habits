@@ -16,7 +16,6 @@ class UserHabitsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var user = PFUser.currentUser()!
-    var colorsArray = NSArray(ofColorsWithColorScheme:ColorScheme.Analogous, with:UIColor.flatSkyBlueColor(), flatScheme:true) as! [UIColor]
     
     override func viewDidLoad() {
         if userHabits == [] {
@@ -26,9 +25,9 @@ class UserHabitsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        self.tableView.backgroundColor = UIColor.flatYellowColor()
-        self.tableView.separatorColor = UIColor.flatYellowColor().darkenByPercentage(0.05)
-        self.tableView.registerNib(UINib(nibName: "UserHabitsTableHeader", bundle: nil), forCellReuseIdentifier: "TableHeader")
+        tableView.backgroundColor = UIColor.flatYellowColor()
+        tableView.separatorColor = UIColor.flatYellowColor().darkenByPercentage(0.05)
+        tableView.registerNib(UINib(nibName: "UserHabitsTableHeader", bundle: nil), forCellReuseIdentifier: "TableHeader")
     }
     
     override func didReceiveMemoryWarning() {
@@ -41,7 +40,7 @@ class UserHabitsViewController: UIViewController {
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = self.tableView.dequeueReusableCellWithIdentifier("TableHeader") as! UserHabitsTableHeader
+        let header = tableView.dequeueReusableCellWithIdentifier("TableHeader") as! UserHabitsTableHeader
         header.backgroundColor = UIColor.flatOrangeColor()
         header.label.font = loraFont.fontWithSize(18)
         return header
@@ -52,7 +51,7 @@ class UserHabitsViewController: UIViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+        let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
         cell.backgroundColor = UIColor.flatYellowColor()
         cell.textLabel?.text = userHabits[indexPath.row].title
         cell.textLabel?.font = loraFont.fontWithSize(16)
@@ -65,7 +64,7 @@ class UserHabitsViewController: UIViewController {
         let detailController = HabitDetailViewController()
         detailController.habit = habit
         detailController.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(detailController, animated: true)
+        navigationController?.pushViewController(detailController, animated: true)
     }
 
 }

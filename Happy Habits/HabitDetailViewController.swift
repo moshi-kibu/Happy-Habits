@@ -21,20 +21,20 @@ class HabitDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = self.habit.title
-        self.setTextView()
-        self.habitButton.layer.cornerRadius = 5
-        self.studyButton.layer.cornerRadius = 5
+        title = habit.title
+        setTextView()
+        habitButton.layer.cornerRadius = 5
+        studyButton.layer.cornerRadius = 5
         
-        if userHabits.contains(self.habit) {
-            self.habitButton.setTitle("Drop Habit", forState: UIControlState.Normal)
+        if userHabits.contains(habit) {
+            habitButton.setTitle("Drop Habit", forState: UIControlState.Normal)
         }
         
     }
     
     override func viewDidAppear(animated: Bool) {
-        if userHabits.contains(self.habit) {
-            self.habitButton.setTitle("Drop Habit", forState: UIControlState.Normal)
+        if userHabits.contains(habit) {
+            habitButton.setTitle("Drop Habit", forState: UIControlState.Normal)
         }
     }
 
@@ -45,51 +45,51 @@ class HabitDetailViewController: UIViewController {
 
     @IBAction func habitButtonTapped(sender: AnyObject) {
         if habitButton.titleLabel?.text == "Adopt Habit" {
-            userHabits.append(self.habit)
+            userHabits.append(habit)
             PFUser.currentUser()!["Habits"] = userHabits
             PFUser.currentUser()!.saveInBackground()
-            self.habitButton.setTitle("Drop Habit", forState: UIControlState.Normal)
+            habitButton.setTitle("Drop Habit", forState: UIControlState.Normal)
         } else {
-            userHabits = userHabits.filter({$0 != self.habit})
+            userHabits = userHabits.filter({$0 != habit})
             PFUser.currentUser()!["Habits"] = userHabits
             PFUser.currentUser()!.saveInBackground()
-            self.habitButton.setTitle("Adopt Habit", forState: UIControlState.Normal)
+            habitButton.setTitle("Adopt Habit", forState: UIControlState.Normal)
         }
     }
     
     
     @IBAction func seeStudyButtonTapped(sender: AnyObject) {
-        for view in self.holderView.subviews {
+        for view in holderView.subviews {
             view.removeFromSuperview()
         }
-        if self.studyButton.titleLabel?.text == "See Study" {
-            self.setWebView()
-            self.studyButton.setTitle("Hide Study", forState: UIControlState.Normal)
+        if studyButton.titleLabel?.text == "See Study" {
+            setWebView()
+            studyButton.setTitle("Hide Study", forState: UIControlState.Normal)
         } else {
-            self.setTextView()
-            self.studyButton.setTitle("See Study", forState: UIControlState.Normal)
+            setTextView()
+            studyButton.setTitle("See Study", forState: UIControlState.Normal)
         }
     }
     
     func setTextView() {
-        self.webView.hidden = true
+        webView.hidden = true
         let textView = UITextView()
-        textView.text = self.habit.details
+        textView.text = habit.details
         textView.font = loraFont.fontWithSize(15)
         textView.frame = holderView.bounds
         textView.autoresizingMask.insert(UIViewAutoresizing.FlexibleWidth)
         textView.autoresizingMask.insert(UIViewAutoresizing.FlexibleHeight)
-        self.holderView.addSubview(textView)
+        holderView.addSubview(textView)
         var color = UIColor()
         switch habit.level {
         case "Simple":
-            color = colorsArray[1]
+            color = triadicColorsArray[1]
             break
         case "Moderate":
-            color = colorsArray[2]
+            color = triadicColorsArray[2]
             break
         case "Challenging":
-            color = colorsArray[3]
+            color = triadicColorsArray[3]
             break
         default:
             break
@@ -98,8 +98,8 @@ class HabitDetailViewController: UIViewController {
     }
     
     func setWebView() {
-        self.webView.hidden = false
-        let url = NSURL(string: self.habit.studyURL)
+        webView.hidden = false
+        let url = NSURL(string: habit.studyURL)
         let request = NSURLRequest(URL: url!)
         webView.loadRequest(request)
     }

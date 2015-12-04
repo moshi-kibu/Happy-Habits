@@ -18,21 +18,21 @@ class AllHabitsCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setCollectionViewUI()
-        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName:loraFont.fontWithSize(18)]
+        setCollectionViewUI()
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName:loraFont.fontWithSize(18)]
         
-        self.levelSelector.setTitleTextAttributes([NSFontAttributeName:loraFont.fontWithSize(12)], forState: .Normal)
-        self.levelSelector.setTitleTextAttributes([NSFontAttributeName:loraFont.fontWithSize(12)], forState: .Selected)
+        levelSelector.setTitleTextAttributes([NSFontAttributeName:loraFont.fontWithSize(12)], forState: .Normal)
+        levelSelector.setTitleTextAttributes([NSFontAttributeName:loraFont.fontWithSize(12)], forState: .Selected)
         
         // Register cell classes
-        self.collectionView!.registerNib(UINib(nibName: "HabitCollectionCell", bundle: nil), forCellWithReuseIdentifier: "HabitCell")
+        collectionView!.registerNib(UINib(nibName: "HabitCollectionCell", bundle: nil), forCellWithReuseIdentifier: "HabitCell")
     }
     
     override func viewDidAppear(animated: Bool) {
         if userHabits == [] {
             Habit.getHabitsForCurrentUser()
         }
-        self.checkSelectorAndReloadData()
+        checkSelectorAndReloadData()
     }
     
     func setCollectionViewUI() {
@@ -47,20 +47,18 @@ class AllHabitsCollectionViewController: UICollectionViewController {
             layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 10, right: 20)
             layout.itemSize = CGSize(width: 125, height: 125)
         }
-
-    
         
-        collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+        collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
         collectionView!.dataSource = self
         collectionView!.delegate = self
         collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         collectionView!.backgroundColor = UIColor.whiteColor()
-        self.view.addSubview(collectionView!)
+        view.addSubview(collectionView!)
         
     }
 
     @IBAction func selectedLevelChanged(sender: AnyObject) {
-        self.checkSelectorAndReloadData()
+        checkSelectorAndReloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -78,19 +76,19 @@ class AllHabitsCollectionViewController: UICollectionViewController {
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return self.habitsToDisplay.count
+        return habitsToDisplay.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("HabitCell", forIndexPath: indexPath) as! HabitCollectionViewCell
-        cell.setUI(self.habitsToDisplay[indexPath.row])
+        cell.setUI(habitsToDisplay[indexPath.row])
         cell.layer.cornerRadius = 5
         cell.layer.masksToBounds = true
         return cell
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let habit = self.habitsToDisplay[indexPath.row]
+        let habit = habitsToDisplay[indexPath.row]
         let detailController = HabitDetailViewController()
         detailController.habit = habit
         detailController.hidesBottomBarWhenPushed = true
@@ -98,17 +96,17 @@ class AllHabitsCollectionViewController: UICollectionViewController {
     }
     
     func checkSelectorAndReloadData(){
-        switch self.levelSelector.selectedSegmentIndex {
+        switch levelSelector.selectedSegmentIndex {
         case 0:
-            self.habitsToDisplay = Habit.getAllHabits()
+            habitsToDisplay = Habit.getAllHabits()
             break
         case 1:
-            self.habitsToDisplay = Habit.getAllHabits().filter({$0.level == "Simple"})
+            habitsToDisplay = Habit.getAllHabits().filter({$0.level == "Simple"})
             break
         case 2:
-            self.habitsToDisplay = Habit.getAllHabits().filter({$0.level == "Moderate"})
+            habitsToDisplay = Habit.getAllHabits().filter({$0.level == "Moderate"})
         case 3:
-            self.habitsToDisplay = Habit.getAllHabits().filter({$0.level == "Challenging"})
+            habitsToDisplay = Habit.getAllHabits().filter({$0.level == "Challenging"})
         default:
             break
         }
