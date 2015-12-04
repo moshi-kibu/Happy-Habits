@@ -25,7 +25,7 @@
 		965440801C03C759009BE9AD /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9654407B1C03C722009BE9AD /* Charts.framework */; };
 		965440811C03C759009BE9AD /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9654407B1C03C722009BE9AD /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		965440851C03C7C7009BE9AD /* HappinessChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965440841C03C7C7009BE9AD /* HappinessChartViewController.swift */; };
-		965FDC381C11151700357346 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 965FDC371C11151700357346 /* README.md */; };
+		965FDC3C1C11161200357346 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 965FDC3B1C11161200357346 /* README.md */; };
 		966BC5FA1C0E6E2200723645 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 966BC5F91C0E6E2200723645 /* .gitignore */; };
 		966BC5FE1C0E716200723645 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966BC5FD1C0E716200723645 /* Config.swift */; };
 		967172FA1BFBC1CF000DCC9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967172F91BFBC1CF000DCC9E /* AppDelegate.swift */; };
@@ -126,7 +126,7 @@
 		9633CA731BFC1739003E915A /* LogHappiness.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogHappiness.xib; sourceTree = "<group>"; };
 		965440741C03C722009BE9AD /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../Downloads/ios-charts-master/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
 		965440841C03C7C7009BE9AD /* HappinessChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HappinessChartViewController.swift; sourceTree = "<group>"; };
-		965FDC371C11151700357346 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = "Happy Habits/README.md"; sourceTree = "<group>"; };
+		965FDC3B1C11161200357346 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		966BC5F91C0E6E2200723645 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		966BC5FD1C0E716200723645 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		967172F61BFBC1CF000DCC9E /* Happy Habits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Happy Habits.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -231,7 +231,7 @@
 		967172ED1BFBC1CF000DCC9E = {
 			isa = PBXGroup;
 			children = (
-				965FDC371C11151700357346 /* README.md */,
+				965FDC3B1C11161200357346 /* README.md */,
 				967172F81BFBC1CF000DCC9E /* Happy Habits */,
 				9671730D1BFBC1CF000DCC9E /* Happy HabitsTests */,
 				967173181BFBC1CF000DCC9E /* Happy HabitsUITests */,
@@ -579,6 +579,7 @@
 			files = (
 				9633CA701BFC0E85003E915A /* SignUpViewController.swift in Sources */,
 				9633CA721BFC1715003E915A /* LogHappinessViewController.swift in Sources */,
+				965FDC3C1C11161200357346 /* README.md in Sources */,
 				9627EC321C06366300A17318 /* UserHabitsTableHeader.swift in Sources */,
 				9633CA6B1BFBFB2B003E915A /* LoginViewController.swift in Sources */,
 				966BC5FE1C0E716200723645 /* Config.swift in Sources */,
@@ -589,7 +590,6 @@
 				967397EF1C0D048000D3A1EA /* TabBarViewController.swift in Sources */,
 				967172FC1BFBC1CF000DCC9E /* ViewController.swift in Sources */,
 				965440851C03C7C7009BE9AD /* HappinessChartViewController.swift in Sources */,
-				965FDC381C11151700357346 /* README.md in Sources */,
 				961A97AA1C0D33EA00A45671 /* Extensions.swift in Sources */,
 				9627EC3E1C06683800A17318 /* HabitDetailViewController.swift in Sources */,
 				96EB31011BFE959D008811C7 /* Log.swift in Sources */,
