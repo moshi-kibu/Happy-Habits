@@ -126,7 +126,7 @@
 		9633CA731BFC1739003E915A /* LogHappiness.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogHappiness.xib; sourceTree = "<group>"; };
 		965440741C03C722009BE9AD /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../Downloads/ios-charts-master/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
 		965440841C03C7C7009BE9AD /* HappinessChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HappinessChartViewController.swift; sourceTree = "<group>"; };
-		965FDC371C11151700357346 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		965FDC371C11151700357346 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = "Happy Habits/README.md"; sourceTree = "<group>"; };
 		966BC5F91C0E6E2200723645 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		966BC5FD1C0E716200723645 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		967172F61BFBC1CF000DCC9E /* Happy Habits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Happy Habits.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -231,6 +231,7 @@
 		967172ED1BFBC1CF000DCC9E = {
 			isa = PBXGroup;
 			children = (
+				965FDC371C11151700357346 /* README.md */,
 				967172F81BFBC1CF000DCC9E /* Happy Habits */,
 				9671730D1BFBC1CF000DCC9E /* Happy HabitsTests */,
 				967173181BFBC1CF000DCC9E /* Happy HabitsUITests */,
@@ -330,7 +331,6 @@
 		96CA025B1BFBE4E600D3D098 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				965FDC371C11151700357346 /* README.md */,
 				961A97A91C0D33EA00A45671 /* Extensions.swift */,
 				966BC5FD1C0E716200723645 /* Config.swift */,
 				9633CA6D1BFBFDF4003E915A /* Norican-Regular.ttf */,
